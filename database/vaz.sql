@@ -1,3 +1,5 @@
+--CREATE DATABASE point_counter;
+USE point_counter;
 CREATE TABLE [Student] (
 	NEPTUN varchar(6) NOT NULL,
 	Name varchar(255) NOT NULL,
@@ -10,13 +12,14 @@ CREATE TABLE [Student] (
 )
 GO
 CREATE TABLE [Subject] (
-	Sub_SK integer NOT NULL,
-	SubCode_FK integer NOT NULL,
+	Sub_SK integer IDENTITY(1,1) NOT NULL,
+	SubCode_FK varchar(255) NOT NULL,
 	Year integer NOT NULL,
-	elegseges integer NOT NULL,
-	kozepes integer NOT NULL,
-	jo integer NOT NULL,
-	jeles integer NOT NULL,
+	elegseges integer,
+	kozepes integer,
+	jo integer,
+	jeles integer,
+	alairas BIT NOT NULL DEFAULT '0',
   CONSTRAINT [PK_SUBJECT] PRIMARY KEY CLUSTERED
   (
   [Sub_SK] ASC
@@ -25,9 +28,9 @@ CREATE TABLE [Subject] (
 )
 GO
 CREATE TABLE [Subject_name] (
-	SubCode_ID integer NOT NULL,
+	SubCode_ID varchar(255) NOT NULL,
 	Name varchar(255) NOT NULL,
-	Uni_FK varchar(6) NOT NULL,
+	Uni_FK varchar(10) NOT NULL,
   CONSTRAINT [PK_SUBJECT_NAME] PRIMARY KEY CLUSTERED
   (
   [SubCode_ID] ASC
@@ -36,7 +39,7 @@ CREATE TABLE [Subject_name] (
 )
 GO
 CREATE TABLE [StudxSub] (
-	StudxSub_SK integer NOT NULL,
+	StudxSub_SK integer IDENTITY(1,1) NOT NULL,
 	NEPTUN_FK varchar(6) NOT NULL,
 	Sub_FK integer NOT NULL,
   CONSTRAINT [PK_STUDXSUB] PRIMARY KEY CLUSTERED
@@ -47,8 +50,8 @@ CREATE TABLE [StudxSub] (
 )
 GO
 CREATE TABLE [Point] (
-	Point_SK integer NOT NULL,
-	Point integer NOT NULL,
+	Point_SK integer IDENTITY(1,1) NOT NULL,
+	Point float NOT NULL,
 	StudxSub_FK integer NOT NULL,
 	PT_FK integer NOT NULL,
 	datum date NOT NULL,
@@ -60,7 +63,7 @@ CREATE TABLE [Point] (
 )
 GO
 CREATE TABLE [point_types] (
-	PT_SK integer NOT NULL,
+	PT_SK integer IDENTITY(1,1) NOT NULL,
 	PT_name varchar(255) NOT NULL UNIQUE,
   CONSTRAINT [PK_POINT_TYPES] PRIMARY KEY CLUSTERED
   (
@@ -70,10 +73,11 @@ CREATE TABLE [point_types] (
 )
 GO
 CREATE TABLE [Max_type_points] (
-	Act_max_SK integer NOT NULL,
+	Act_max_SK integer IDENTITY(1,1) NOT NULL,
 	Sub_FK integer NOT NULL,
 	PT_FK integer NOT NULL,
-	max integer NOT NULL,
+	max integer NOT NULL DEFAULT '0',
+	min integer NOT NULL DEFAULT '0',
   CONSTRAINT [PK_MAX_TYPE_POINTS] PRIMARY KEY CLUSTERED
   (
   [Act_max_SK] ASC
@@ -92,8 +96,13 @@ CREATE TABLE [University] (
 )
 GO
 CREATE TABLE [StudentxUniversity] (
-	NEPTUN_FK integer NOT NULL,
-	Uni_FK varchar(10) NOT NULL
+	NEPTUN_FK varchar(6) NOT NULL,
+	Uni_FK varchar(10) NOT NULL,
+  CONSTRAINT [PK_STUDENTXUNIVERSITY] PRIMARY KEY CLUSTERED
+  (
+  [NEPTUN_FK] ASC
+  ) WITH (IGNORE_DUP_KEY = OFF)
+
 )
 GO
 
@@ -133,7 +142,6 @@ GO
 
 
 ALTER TABLE [Max_type_points] WITH CHECK ADD CONSTRAINT [Max_type_points_fk0] FOREIGN KEY ([Sub_FK]) REFERENCES [Subject]([Sub_SK])
-ON UPDATE CASCADE
 GO
 ALTER TABLE [Max_type_points] CHECK CONSTRAINT [Max_type_points_fk0]
 GO
@@ -154,4 +162,3 @@ ON UPDATE CASCADE
 GO
 ALTER TABLE [StudentxUniversity] CHECK CONSTRAINT [StudentxUniversity_fk1]
 GO
-
