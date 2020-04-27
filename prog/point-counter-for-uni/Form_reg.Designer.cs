@@ -35,12 +35,12 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.second_label1 = new point_counter_for_uni.second_label();
             this.second_label2 = new point_counter_for_uni.second_label();
+            this.second_label3 = new point_counter_for_uni.second_label();
             this.tB_NEPTUN = new point_counter_for_uni.second_textbox();
             this.tB_Jelszó = new point_counter_for_uni.second_textbox();
             this.tb_Jelszó2 = new point_counter_for_uni.second_textbox();
             this.second_label4 = new point_counter_for_uni.second_label();
             this.chB_mutasd = new System.Windows.Forms.CheckBox();
-            this.second_label3 = new point_counter_for_uni.second_label();
             this.tB_NÉV = new point_counter_for_uni.second_textbox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -163,6 +163,19 @@
             this.second_label2.Text = "Jelszó";
             this.second_label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // second_label3
+            // 
+            this.second_label3.AutoSize = true;
+            this.second_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.second_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.second_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.second_label3.Location = new System.Drawing.Point(3, 253);
+            this.second_label3.Name = "second_label3";
+            this.second_label3.Size = new System.Drawing.Size(334, 13);
+            this.second_label3.TabIndex = 0;
+            this.second_label3.Text = "Név";
+            this.second_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // tB_NEPTUN
             // 
             this.tB_NEPTUN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -221,19 +234,6 @@
             this.chB_mutasd.TabIndex = 6;
             this.chB_mutasd.Text = "Mutasd";
             this.chB_mutasd.UseVisualStyleBackColor = true;
-            // 
-            // second_label3
-            // 
-            this.second_label3.AutoSize = true;
-            this.second_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.second_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.second_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_label3.Location = new System.Drawing.Point(3, 253);
-            this.second_label3.Name = "second_label3";
-            this.second_label3.Size = new System.Drawing.Size(334, 13);
-            this.second_label3.TabIndex = 0;
-            this.second_label3.Text = "Név";
-            this.second_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // tB_NÉV
             // 

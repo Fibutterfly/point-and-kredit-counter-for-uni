@@ -13,6 +13,10 @@ namespace point_counter_for_uni
 {
     static class regexer
     {
+        static public string uni_id = @"^[A-ZÖÜÓŐÚŰÉÁÍ]{2,6}$";
+        static public string Nev = @"^[^0-9]*$";
+        static public string NEPTUN = @"^[A-Z0-9]{6}$";
+        static public string jelszó = @"^.{6,}$";
         static public void regex_textBox(object sender, CancelEventArgs e)
         {
             TextBox tB = (TextBox)sender;

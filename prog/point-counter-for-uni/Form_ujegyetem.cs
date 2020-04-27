@@ -48,8 +48,8 @@ namespace point_counter_for_uni
 
         private void Form_ujegyetem_Load(object sender, EventArgs e)
         {
-            tB_name.Tag = @"^[^0-9]*$";
-            tB_id.Tag = @"^[A-ZÖÜÓŐÚŰÉÁÍ]{2,6}$";
+            tB_name.Tag = regexer.Nev;
+            tB_id.Tag = regexer.uni_id;
     }
     }
 }

@@ -88,13 +88,13 @@ namespace point_counter_for_uni
         private void Form_reg_Load(object sender, EventArgs e)
         {
             //fillUniBox();
-            tB_NEPTUN.Tag = @"^[A-Z0-9]{6}$";
-            tB_Jelszó.Tag = @"^.{6,}$";
+            tB_NEPTUN.Tag = regexer.NEPTUN;
+            tB_Jelszó.Tag = regexer.jelszó;
             tB_Jelszó.PasswordChar = '*';
             tb_Jelszó2.PasswordChar = '*';
             chB_mutasd.CausesValidation = false;
             but_nope.CausesValidation = false;
-            tB_NÉV.Tag = @"^[^0-9]*$";
+            tB_NÉV.Tag = regexer.Nev;
         }
 
         private void But_újegyetem_Click(object sender, EventArgs e)
