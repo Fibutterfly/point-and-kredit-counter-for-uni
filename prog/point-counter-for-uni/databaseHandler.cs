@@ -37,6 +37,27 @@ namespace point_counter_for_uni
                 throw ex;
             }
         }
+        static public bool login(string NEPTUN, string pass)
+        {
+            string hash = CalcSha256(pass);
+            try
+            {
+                var smth = (from x in context.Students
+                            where x.NEPTUN == NEPTUN && x.Password == hash 
+                            select x).FirstOrDefault();
+                if (smth == null)
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return true;
+        }
         static public void RegisterUniversity(string ID, string name)
         {
             University temp = new University()
