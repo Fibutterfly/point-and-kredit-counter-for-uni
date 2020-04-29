@@ -26,27 +26,91 @@ namespace point_counter_for_uni
             }
             return rtn;
         }
+        static public int getsubxstudfiltered(string ev, string nev)
+        {
+            int rtn = 0;
+            try
+            {
+                rtn = (from x in context.StudxSubs
+                       where x.NEPTUN_FK == user.NEPTUN
+                       && x.Subject.Year == ev
+                       && x.Subject.Subject_name.Name == nev
+                       select x.StudxSub_SK).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
         static public List<summarized> filteredSummarizedPoints(string uni, string year)
         {
             List<summarized> rtn = new List<summarized>();
             try
             {
-                rtn = (from p in context.Points
-                       where p.StudxSub.NEPTUN_FK == user.NEPTUN
-                       && p.StudxSub.Subject.Subject_name.University.Name.Contains(uni)
-                       && p.StudxSub.Subject.Year.Contains(year)
-                       group p by p.StudxSub.Subject into g
-                       select new summarized()
-                       {
-                           Tárgy_név = g.Key.Subject_name.Name,
-                           Év = g.Key.Year,
-                           Egyetem = g.Key.Subject_name.Uni_FK,
-                           Pont = g.Sum(f => f.Point1),
-                           kettes = g.Key.elegseges,
-                           harom = g.Key.kozepes,
-                           negy = g.Key.jo,
-                           öt = g.Key.jeles
-                       }).ToList();
+                var query = (from ss in context.StudxSubs
+                             join p in context.Points on new { StudxSub_FK = ss.StudxSub_SK } equals new { StudxSub_FK = p.StudxSub_FK } into p_join
+                             from p in p_join.DefaultIfEmpty()
+                             where ss.NEPTUN_FK == user.NEPTUN
+                                && ss.Subject.Year.Contains(year)
+                                && ss.Subject.Subject_name.Uni_FK.Contains(uni)
+                             group new { ss.Subject.Subject_name, ss.Subject, p } by new
+                             {
+                                 ss.Subject.Subject_name.Name,
+                                 ss.Subject.Year,
+                                 ss.Subject.Subject_name.Uni_FK
+                             } into g
+                             select new summarized()
+                             {
+                                 Tárgy_név = g.Key.Name,
+                                 Év = g.Key.Year,
+                                 Egyetem = g.Key.Uni_FK,
+                                 Pont = (g.Sum(p => p.p.Point1) == null)?(0):(g.Sum(p => p.p.Point1)),
+                                 kettes = g.Select(p => p.Subject.elegseges).FirstOrDefault(),
+                                 harom = g.Select(p => p.Subject.kozepes).FirstOrDefault(),
+                                 negy = g.Select(p => p.Subject.jo).FirstOrDefault(),
+                                 öt = g.Select(p => p.Subject.jeles).FirstOrDefault()
+                             }).ToList();
+                rtn = query;
+                //rtn = (from ss in context.StudxSubs
+                //       join sn in context.Subject_name on ss.Subject.SubCode_FK equals sn.SubCode_ID into ss_sn
+                //       from sssn in ss_sn.DefaultIfEmpty()
+                //       join s in context.Subjects on sssn.SubCode_ID equals s.SubCode_FK into sssn_s
+                //       from sssns in sssn_s.DefaultIfEmpty()
+                //       join p in context.Points on ss.StudxSub_SK equals p.StudxSub_FK into sssns_p
+                //       from sssnsp in sssns_p.DefaultIfEmpty()
+                //       group sssnsp by new { sssnsp.StudxSub.Subject.Subject_name.Name, sssnsp.StudxSub.Subject.Year, sssnsp.StudxSub.Subject.Subject_name.Uni_FK } into g
+                //       select new summarized()
+                //       {
+                //           Tárgy_név = g.Key.Name,
+                //           Év = g.Key.Year,
+                //           Egyetem = g.Key.Uni_FK
+                //       }
+                //       ).ToList();
+
+
+
+
+
+
+                //var teszt = (from p in context.Points
+                //             where p.StudxSub.NEPTUN_FK == user.NEPTUN
+                //             && p.StudxSub.Subject.Subject_name.University.Name.Contains(uni)
+                //             && p.StudxSub.Subject.Year.Contains(year)
+                //             group p by p.StudxSub.Subject into g
+                //             select new summarized()
+                //             {
+                //                 Tárgy_név = g.Key.Subject_name.Name,
+                //                 Év = g.Key.Year,
+                //                 Egyetem = g.Key.Subject_name.Uni_FK,
+                //                 Pont = g.Sum(f => f.Point1),
+                //                 kettes = g.Key.elegseges,
+                //                 harom = g.Key.kozepes,
+                //                 negy = g.Key.jo,
+                //                 öt = g.Key.jeles
+                //             });
+                //System.Windows.Forms.MessageBox.Show(teszt.ToString());
             }
             catch (Exception)
             {

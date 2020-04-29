@@ -15,7 +15,7 @@ namespace point_counter_for_uni
         public Form_bejelentekzett()
         {
             InitializeComponent();
-            cB_egyetem.SelectionChangeCommitted += CB_egyetem_SelectionChangeCommitted;
+            //cB_egyetem.SelectionChangeCommitted += CB_egyetem_SelectionChangeCommitted;
             tB_név.TextChanged += TB_név_TextChanged;
             cB_jegyek.SelectionChangeCommitted += CB_jegyek_SelectionChangeCommitted;
             cB_egyenlő.Click += CB_egyenlő_Click;
@@ -23,6 +23,17 @@ namespace point_counter_for_uni
             cB_év.SelectedValueChanged += CB_év_SelectedValueChanged;
             but_reset.Click += But_reset_Click;
             dgw_point.CellContentClick += Dgw_point_CellContentClick;
+
+        }
+
+        private void CB_egyetem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cB = (ComboBox)sender;
+            if(cB.SelectedIndex >= -1)
+            {
+                fillDgw();
+            }
+            
         }
 
         private void Dgw_point_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -32,6 +43,9 @@ namespace point_counter_for_uni
                 DataGridView dgw = (DataGridView)sender;
                 //MessageBox.Show(e.RowIndex.ToString());
                 summarized ActiveItem = (summarized)dgw.Rows[e.RowIndex].DataBoundItem;
+                int id = databaseHandler.getsubxstudfiltered(ActiveItem.Év, ActiveItem.Tárgy_név);
+                Form_részletek reszlet = new Form_részletek(id);
+                reszlet.Show();
                 //MessageBox.Show(asd.Pont.ToString());
             }
         }
@@ -84,7 +98,7 @@ namespace point_counter_for_uni
         private void fillDgw()
         {
             //MessageBox.Show(cB_jegyek.SelectedItem.ToString());
-            List<summarized> summarizeds = databaseHandler.filteredSummarizedPoints(cB_egyetem.SelectedText, cB_év.SelectedItem.ToString());
+            List<summarized> summarizeds = databaseHandler.filteredSummarizedPoints(cB_egyetem.SelectedItem.ToString(), cB_év.SelectedItem.ToString());
             List<summarized> dataset = filterDGW(summarizeds);
             summarizedBindingSource.DataSource = dataset;
             if (dgw_point.Columns.GetColumnCount(DataGridViewElementStates.Displayed) == 6)
@@ -162,6 +176,8 @@ namespace point_counter_for_uni
             initBoxes();
             fillDgw();
             dgw_point.AllowUserToAddRows = false;
+            cB_egyetem.SelectedIndexChanged += CB_év_SelectedValueChanged;
+
         }
 
         private void LoadÉvek()

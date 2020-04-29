@@ -12,9 +12,10 @@ namespace point_counter_for_uni
 {
     public partial class Form_részletek : default_form
     {
-        public Form_részletek()
+        public Form_részletek(int StudxSub_SK)
         {
             InitializeComponent();
+           // MessageBox.Show(StudxSub_SK.ToString());
         }
     }
 }

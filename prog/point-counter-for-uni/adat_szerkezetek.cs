@@ -12,7 +12,7 @@ namespace point_counter_for_uni
         public string Tárgy_név { get; set; }
         public string Év { get; set; }
         public string Egyetem { get; set; }
-        public double Pont { get; set; }
+        public double? Pont { get; set; }
 
 
         public int? kettes { get; set; }

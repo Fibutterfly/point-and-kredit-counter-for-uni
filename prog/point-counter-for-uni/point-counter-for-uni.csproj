@@ -75,6 +75,12 @@
     <Compile Include="Form_reg.Designer.cs">
       <DependentUpon>Form_reg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_részletek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_részletek.Designer.cs">
+      <DependentUpon>Form_részletek.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_ujegyetem.cs">
       <SubType>Form</SubType>
     </Compile>
