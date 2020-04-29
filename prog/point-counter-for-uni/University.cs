@@ -18,7 +18,7 @@ namespace point_counter_for_uni
         public University()
         {
             this.Subject_name = new HashSet<Subject_name>();
-            this.Students = new HashSet<Student>();
+            this.StudentxUniversities = new HashSet<StudentxUniversity>();
         }
     
         public string Uni_ID { get; set; }
@@ -27,6 +27,6 @@ namespace point_counter_for_uni
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subject_name> Subject_name { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<StudentxUniversity> StudentxUniversities { get; set; }
     }
 }

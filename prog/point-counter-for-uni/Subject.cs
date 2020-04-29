@@ -23,7 +23,7 @@ namespace point_counter_for_uni
     
         public int Sub_SK { get; set; }
         public string SubCode_FK { get; set; }
-        public int Year { get; set; }
+        public string Year { get; set; }
         public Nullable<int> elegseges { get; set; }
         public Nullable<int> kozepes { get; set; }
         public Nullable<int> jo { get; set; }

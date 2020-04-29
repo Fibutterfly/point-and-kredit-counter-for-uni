@@ -32,7 +32,7 @@ namespace point_counter_for_uni
         public virtual DbSet<StudxSub> StudxSubs { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Subject_name> Subject_name { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<University> Universities { get; set; }
+        public virtual DbSet<StudentxUniversity> StudentxUniversities { get; set; }
     }
 }

@@ -12,12 +12,13 @@ namespace point_counter_for_uni
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class StudentxUniversity
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int su_SK { get; set; }
+        public string NEPTUN_FK { get; set; }
+        public string Uni_FK { get; set; }
+    
+        public virtual Student Student { get; set; }
+        public virtual University University { get; set; }
     }
 }

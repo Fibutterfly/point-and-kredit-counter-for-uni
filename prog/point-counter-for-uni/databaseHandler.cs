@@ -10,6 +10,72 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public List<string> getYearsByNeptun()
+        {
+            List<string> rtn = new List<string>();
+            try
+            {
+                rtn = (from x in context.Points
+                       where x.StudxSub.NEPTUN_FK == user.NEPTUN
+                       select x.StudxSub.Subject.Year).Distinct().ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
+        static public List<summarized> filteredSummarizedPoints(string uni, string year)
+        {
+            List<summarized> rtn = new List<summarized>();
+            try
+            {
+                rtn = (from p in context.Points
+                       where p.StudxSub.NEPTUN_FK == user.NEPTUN
+                       && p.StudxSub.Subject.Subject_name.University.Name.Contains(uni)
+                       && p.StudxSub.Subject.Year.Contains(year)
+                       group p by p.StudxSub.Subject into g
+                       select new summarized()
+                       {
+                           Tárgy_név = g.Key.Subject_name.Name,
+                           Év = g.Key.Year,
+                           Egyetem = g.Key.Subject_name.Uni_FK,
+                           Pont = g.Sum(f => f.Point1),
+                           kettes = g.Key.elegseges,
+                           harom = g.Key.kozepes,
+                           negy = g.Key.jo,
+                           öt = g.Key.jeles
+                       }).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            foreach (summarized item in rtn)
+            {
+                item.CalcJegy();
+            }
+            return rtn;
+        }
+        static public List<string> getUnisByNEPTUN()
+        {
+            List<string> rtn = new List<string>();
+            try
+            {
+                rtn = (from x in context.StudentxUniversities
+                       where x.NEPTUN_FK == user.NEPTUN
+                       select x.Uni_FK).ToList();
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return rtn;
+        }
         static public List<University> getUnis()
         {
             List<University> rtn;

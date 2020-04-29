@@ -27,6 +27,11 @@ namespace point_counter_for_uni
             tB_NEPTUN.Tag = regexer.NEPTUN;
             tB_PASS.Tag = regexer.jelszó;
             tB_PASS.PasswordChar = '*';
+#if DEBUG
+            tB_NEPTUN.Text = "HS3SS4";
+            tB_PASS.Text = "12345678";
+            login();
+#endif
         }
 
         private void But_REG_Click(object sender, EventArgs e)
@@ -34,14 +39,17 @@ namespace point_counter_for_uni
             Form_reg reg = new Form_reg();
             reg.ShowDialog();
         }
-
-        private void But_BE_Click(object sender, EventArgs e)
+        private void login()
         {
             try
             {
                 if (databaseHandler.login(tB_NEPTUN.Text, tB_PASS.Text))
                 {
                     user.NEPTUN = tB_NEPTUN.Text;
+                    Form_bejelentekzett temp = new Form_bejelentekzett();
+                    temp.Show();
+                    this.Hide();
+
                 }
                 else
                 {
@@ -52,7 +60,10 @@ namespace point_counter_for_uni
             {
                 MessageBox.Show(ex.ToString());
             }
-
+        }
+        private void But_BE_Click(object sender, EventArgs e)
+        {
+            login();
         }
     }
 }

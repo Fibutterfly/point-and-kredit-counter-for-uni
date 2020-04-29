@@ -17,6 +17,7 @@ namespace point_counter_for_uni
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
+            this.StudentxUniversities = new HashSet<StudentxUniversity>();
             this.StudxSubs = new HashSet<StudxSub>();
         }
     
@@ -25,7 +26,8 @@ namespace point_counter_for_uni
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StudentxUniversity> StudentxUniversities { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StudxSub> StudxSubs { get; set; }
-        public virtual University University { get; set; }
     }
 }

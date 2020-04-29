@@ -59,6 +59,35 @@ namespace point_counter_for_uni
         static public Color OkBackGround = Color.Green;
         static public Color OkText = Color.Black;
     }
+    class default_radioButton : RadioButton
+    {
+        public default_radioButton()
+        {
+            this.FlatStyle = FlatStyle.Flat;
+            this.ForeColor = default_colors.PrimaryText;
+        }
+    }
+    class default_dataGridView : DataGridView
+    {
+        public default_dataGridView()
+        {
+            this.BackgroundColor = default_colors.PrimaryBackGround;
+            this.Dock = DockStyle.Fill;
+            this.ForeColor = default_colors.PrimaryText;
+            this.GridColor = default_colors.PrimaryBackGround_Dark;
+            this.RowsDefaultCellStyle.BackColor = default_colors.PrimaryBackGround_Light;
+            this.DefaultCellStyle.BackColor = default_colors.PrimaryBackGround_Dark;
+            this.ColumnHeadersDefaultCellStyle.BackColor = default_colors.PrimaryBackGround_Dark;
+            this.RowHeadersDefaultCellStyle.BackColor = default_colors.PrimaryBackGround_Dark;
+        }
+    }
+    class default_checkBox : CheckBox
+    {
+        public default_checkBox()
+        {
+            this.ForeColor = default_colors.PrimaryText;
+        }
+    }
     class default_textBox : TextBox
     {
         public default_textBox()
@@ -66,6 +95,15 @@ namespace point_counter_for_uni
             this.BackColor = default_colors.SecondaryBackGround;
             this.ForeColor = default_colors.SecondaryText;
             this.BorderStyle = BorderStyle.FixedSingle;
+        }
+    }
+    class default_comboBox : ComboBox
+    {
+        public default_comboBox()
+        {
+            this.BackColor = default_colors.SecondaryBackGround;
+            this.ForeColor = default_colors.SecondaryText;
+            this.FlatStyle = FlatStyle.Flat;
         }
     }
     class second_comboBox : ComboBox
