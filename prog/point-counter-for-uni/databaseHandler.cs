@@ -3,13 +3,88 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace point_counter_for_uni
 {
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public void New_point(int pont, int studxsub, int act_sk, DateTime nap)
+        {
+            Point p = new Point()
+            {
+                Point1 = pont,
+                StudxSub_FK = studxsub,
+                PT_FK = act_sk,
+                datum = nap
+            };
+            context.Points.Add(p);
+            Save();
+        }
+        static public Point GetPointByPoint_SK(int point_sk)
+        {
+            Point rtn = new Point();
+            try
+            {
+                rtn = (from p in context.Points
+                       where p.Point_SK == point_sk
+                       
+                       select p).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
+        static public List<Point> getPointsBySummarize(int act_sk)
+        {
+            List<Point> rtn = new List<Point>();
+            try
+            {
+                rtn = (from p in context.Points
+                      where p.PT_FK == act_sk
+                      && p.StudxSub.NEPTUN_FK == user.NEPTUN
+                      select p).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
+        static public List<sum_by_types> getFilteredSummarizedPoints(int studxsub)
+        {
+            List<sum_by_types> rtn = new List<sum_by_types>();
+            try
+            {
+                rtn = (from ss in context.StudxSubs
+                       join s in context.Subjects on ss.Sub_FK equals s.Sub_SK
+                       join mtp in context.Max_type_points on s.Sub_SK equals mtp.Sub_FK
+                       where
+                         ss.StudxSub_SK == studxsub
+                         && ss.NEPTUN_FK == user.NEPTUN
+                       select new sum_by_types()
+                       {
+                           Pont_id = mtp.Act_max_SK,
+                           Pont_nev = mtp.point_types.PT_name,
+                           Min = mtp.min,
+                           Max = mtp.max,
+                           //Pont = mtp.Points.Sum(x => x.Point1)
+                           Pont = mtp.Points.Where(y => y.StudxSub.NEPTUN_FK == user.NEPTUN).Sum(x => x.Point1)
+                       }).ToList();
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
         static public List<string> getYearsByNeptun()
         {
             List<string> rtn = new List<string>();
@@ -66,7 +141,7 @@ namespace point_counter_for_uni
                                  Tárgy_név = g.Key.Name,
                                  Év = g.Key.Year,
                                  Egyetem = g.Key.Uni_FK,
-                                 Pont = (g.Sum(p => p.p.Point1) == null)?(0):(g.Sum(p => p.p.Point1)),
+                                 Pont = (g.Sum(p => p.p.Point1) == null) ? (0) : (g.Sum(p => p.p.Point1)),
                                  kettes = g.Select(p => p.Subject.elegseges).FirstOrDefault(),
                                  harom = g.Select(p => p.Subject.kozepes).FirstOrDefault(),
                                  negy = g.Select(p => p.Subject.jo).FirstOrDefault(),
@@ -155,7 +230,7 @@ namespace point_counter_for_uni
             }
             return rtn;
         }
-        static void Save()
+        static public void Save()
         {
             try
             {
@@ -173,7 +248,7 @@ namespace point_counter_for_uni
             try
             {
                 var smth = (from x in context.Students
-                            where x.NEPTUN == NEPTUN && x.Password == hash 
+                            where x.NEPTUN == NEPTUN && x.Password == hash
                             select x).FirstOrDefault();
                 if (smth == null)
                 {

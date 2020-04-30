@@ -7,6 +7,15 @@ using System.Windows.Forms;
 
 namespace point_counter_for_uni
 {
+    class sum_by_types
+    {
+        public int Pont_id { get; set; }
+        public string Pont_nev { get; set; }
+        public int? Max { get; set; }
+        public int? Min { get; set; }
+        public double? Pont { get; set; }
+
+    }
     class summarized
     {
         public string Tárgy_név { get; set; }

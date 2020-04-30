@@ -54,12 +54,12 @@
             this.cB_egyetem = new point_counter_for_uni.default_comboBox();
             this.but_reset = new point_counter_for_uni.button_default();
             this.dgw_point = new point_counter_for_uni.default_dataGridView();
-            this.summarizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tárgynévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.évDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.egyetemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jegyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.summarizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -390,10 +390,6 @@
             this.dgw_point.Size = new System.Drawing.Size(794, 309);
             this.dgw_point.TabIndex = 1;
             // 
-            // summarizedBindingSource
-            // 
-            this.summarizedBindingSource.DataSource = typeof(point_counter_for_uni.summarized);
-            // 
             // tárgynévDataGridViewTextBoxColumn
             // 
             this.tárgynévDataGridViewTextBoxColumn.DataPropertyName = "Tárgy_név";
@@ -423,6 +419,10 @@
             this.jegyDataGridViewTextBoxColumn.DataPropertyName = "Jegy";
             this.jegyDataGridViewTextBoxColumn.HeaderText = "Jegy";
             this.jegyDataGridViewTextBoxColumn.Name = "jegyDataGridViewTextBoxColumn";
+            // 
+            // summarizedBindingSource
+            // 
+            this.summarizedBindingSource.DataSource = typeof(point_counter_for_uni.summarized);
             // 
             // Form_bejelentekzett
             // 

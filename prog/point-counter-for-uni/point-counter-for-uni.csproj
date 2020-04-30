@@ -87,6 +87,12 @@
     <Compile Include="Form_ujegyetem.Designer.cs">
       <DependentUpon>Form_ujegyetem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_újpont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_újpont.Designer.cs">
+      <DependentUpon>Form_újpont.cs</DependentUpon>
+    </Compile>
     <Compile Include="Max_type_points.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -142,8 +148,14 @@
     <EmbeddedResource Include="Form_reg.resx">
       <DependentUpon>Form_reg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_részletek.resx">
+      <DependentUpon>Form_részletek.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_ujegyetem.resx">
       <DependentUpon>Form_ujegyetem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_újpont.resx">
+      <DependentUpon>Form_újpont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,7 +174,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Point.datasource" />
     <None Include="Properties\DataSources\summarized.datasource" />
+    <None Include="Properties\DataSources\sum_by_types.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

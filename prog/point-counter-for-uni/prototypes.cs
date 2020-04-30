@@ -17,6 +17,7 @@ namespace point_counter_for_uni
         static public string Nev = @"^[^0-9]*$";
         static public string NEPTUN = @"^[A-Z0-9]{6}$";
         static public string jelszó = @"^.{6,}$";
+        static public string Csak_szam = @"[0-9]";
         static public void regex_textBox(object sender, CancelEventArgs e)
         {
             TextBox tB = (TextBox)sender;
