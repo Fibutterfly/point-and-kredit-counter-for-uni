@@ -9,6 +9,11 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public void del_point(Point delete)
+        {
+            context.Points.Remove(delete);
+            Save();
+        }
         static public void New_point(int pont, int studxsub, int act_sk, DateTime nap)
         {
             Point p = new Point()

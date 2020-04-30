@@ -19,19 +19,33 @@ namespace point_counter_for_uni
             act = StudxSub_SK;
             Load_summared_dgw(StudxSub_SK);
             dgw_összesített.CellClick += Dgw_összesített_CellClick;
-            dgw_részletek.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            load_részlet();
             but_új.Click += But_új_Click;
             but_mód.Click += But_mód_Click;
             but_del.Click += But_del_Click;
             //MessageBox.Show(StudxSub_SK.ToString());
         }
 
+        private void load_részlet()
+        {
+            //dgw_részletek.Visible = false;
+            dgw_részletek.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgw_részletek.AllowUserToAddRows = false;
+            dgw_részletek.CellClick += Dgw_részletek_CellClick;
+        }
+        int active = -1;
+        private void Dgw_részletek_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            active = e.RowIndex;
+        }
+
         private void But_del_Click(object sender, EventArgs e)
         {
-            
-            if (dgw_részletek.SelectedRows.Count > 0)
+
+            if (active != -1)
             {
-                dgw_részletek.Rows.Remove(dgw_részletek.SelectedRows[0]);
+                databaseHandler.del_point((Point)dgw_részletek.Rows[active].DataBoundItem);
+                Load_summared_dgw(act);
             }
         }
 
@@ -66,12 +80,15 @@ namespace point_counter_for_uni
 
         private void Load_summared_dgw(int StudxSub_SK)
         {
+            pointBindingSource.DataSource = new List<Point>();
             dgw_összesített.AllowUserToAddRows = false;
             
             sumbytypesBindingSource.DataSource = databaseHandler.getFilteredSummarizedPoints(StudxSub_SK);
             dgw_összesített.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgw_összesített.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
             dgw_összesített.MultiSelect = false;
+            active = -1;
+            //dgw_részletek.Show();
         }
 
         private void Form_részletek_Load(object sender, EventArgs e)
