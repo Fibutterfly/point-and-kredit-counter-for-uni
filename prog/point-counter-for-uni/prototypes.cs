@@ -18,13 +18,30 @@ namespace point_counter_for_uni
         static public string NEPTUN = @"^[A-Z0-9]{6}$";
         static public string jelszó = @"^.{6,}$";
         static public string Csak_szam = @"[0-9]";
+        static public bool itTextBoxEmpty(List<TextBox> boxes)
+        {
+            bool rtn = true;
+            foreach (TextBox item in boxes)
+            {
+                if (item.Text == "")
+                {
+                    MessageBox.Show("Van olyan, amit kikellett volna tölteni, de nem sikerült");
+                    item.BackColor = default_colors.ErrorBackGround;
+                    item.ForeColor = default_colors.ErrorText;
+                    return false;
+                }
+            }
+            return rtn;
+        }
         static public void regex_textBox(object sender, CancelEventArgs e)
         {
             TextBox tB = (TextBox)sender;
             Regex re = new Regex(tB.Tag.ToString());
+            //e.Cancel = true;
+            //MessageBox.Show("Mi a faszom");
             if (re.IsMatch(tB.Text))
             {
-                e.Cancel = true;
+                //e.Cancel = true;
                 if (!String.IsNullOrEmpty(tB.Text))
                 {
                     e.Cancel = false;

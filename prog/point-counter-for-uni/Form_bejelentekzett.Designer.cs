@@ -50,8 +50,8 @@
             this.rB_nagyobb = new point_counter_for_uni.default_radioButton();
             this.rB_kisebb = new point_counter_for_uni.default_radioButton();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_default1 = new point_counter_for_uni.button_default();
             this.but_reset = new point_counter_for_uni.button_default();
+            this.but_újtárgy = new point_counter_for_uni.button_default();
             this.cB_egyetem = new point_counter_for_uni.default_comboBox();
             this.but_újegyetem = new point_counter_for_uni.button_default();
             this.dgw_point = new point_counter_for_uni.default_dataGridView();
@@ -297,8 +297,8 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel6.Controls.Add(this.button_default1, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.but_reset, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.but_újtárgy, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.cB_egyetem, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.but_újegyetem, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -311,31 +311,31 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(258, 85);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
-            // button_default1
-            // 
-            this.button_default1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button_default1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_default1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_default1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button_default1.Location = new System.Drawing.Point(3, 45);
-            this.button_default1.Name = "button_default1";
-            this.button_default1.Size = new System.Drawing.Size(174, 37);
-            this.button_default1.TabIndex = 2;
-            this.button_default1.Text = "szűrők törlése";
-            this.button_default1.UseVisualStyleBackColor = false;
-            // 
             // but_reset
             // 
             this.but_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.but_reset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_reset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.but_reset.Location = new System.Drawing.Point(183, 45);
+            this.but_reset.Location = new System.Drawing.Point(3, 45);
             this.but_reset.Name = "but_reset";
-            this.but_reset.Size = new System.Drawing.Size(72, 37);
-            this.but_reset.TabIndex = 1;
+            this.but_reset.Size = new System.Drawing.Size(174, 37);
+            this.but_reset.TabIndex = 2;
             this.but_reset.Text = "szűrők törlése";
             this.but_reset.UseVisualStyleBackColor = false;
+            // 
+            // but_újtárgy
+            // 
+            this.but_újtárgy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.but_újtárgy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_újtárgy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_újtárgy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.but_újtárgy.Location = new System.Drawing.Point(183, 45);
+            this.but_újtárgy.Name = "but_újtárgy";
+            this.but_újtárgy.Size = new System.Drawing.Size(72, 37);
+            this.but_újtárgy.TabIndex = 1;
+            this.but_újtárgy.Text = "új tárgy felvétele";
+            this.but_újtárgy.UseVisualStyleBackColor = false;
             // 
             // cB_egyetem
             // 
@@ -481,7 +481,7 @@
         private default_checkBox cB_egyenlő;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private default_comboBox cB_egyetem;
-        private button_default but_reset;
+        private button_default but_újtárgy;
         private System.Windows.Forms.Panel panel1;
         private default_radioButton rB_nagyobb;
         private default_radioButton rB_kisebb;
@@ -494,7 +494,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jegyDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource summarizedBindingSource;
-        private button_default button_default1;
+        private button_default but_reset;
         private button_default but_újegyetem;
     }
 }

@@ -9,6 +9,59 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public List<point_types> GetPoint_Types()
+        {
+            List<point_types> rtn = new List<point_types>();
+            try
+            {
+                rtn = (from pt in context.point_types
+                       select pt).ToList(); ;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
+        static public List<subject_chooser> GetSubject_Choosers()
+        {
+            List<subject_chooser> rtn = new List<subject_chooser>();
+            try
+            {
+                var querry = from sub in context.Subjects 
+                             select sub;
+                var denie = from sxs in context.StudxSubs
+                            where sxs.NEPTUN_FK == user.NEPTUN
+                            select sxs.Sub_FK;
+                foreach (var item in querry)
+                {
+                    if (denie.Contains(item.Sub_SK))
+                    {
+                        continue;
+                    }
+                    subject_chooser sch = new subject_chooser()
+                    {
+
+                        Aláírásos = (item.alairas) ? ("Aláírásos") : ("Nem aláírásos"),
+                        Elégséges = (item.elegseges == null) ? ("Nem tudjuk") : (item.elegseges.ToString()),
+                        Jeles = (item.jeles == null) ? ("Nem tudjuk") : (item.jeles.ToString()),
+                        Jó = (item.jo == null) ? ("Nem tudjuk") : (item.jo.ToString()),
+                        Közepes = (item.kozepes == null) ? ("Nem tudjuk") : (item.kozepes.ToString()),
+                        Tárgy_kód = item.SubCode_FK,
+                        Tárgy_név = item.Subject_name.Name,
+                        Uni = item.Subject_name.Uni_FK
+                    };
+                    rtn.Add(sch);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return rtn;
+        }
         static public void addStudxuni(string uni)
         {
             StudentxUniversity sxu = new StudentxUniversity()

@@ -21,10 +21,20 @@ namespace point_counter_for_uni
             cB_egyenlő.Click += CB_egyenlő_Click;
             rB_kisebb.CheckedChanged += RB_kisebb_CheckedChanged;
             cB_év.SelectedValueChanged += CB_év_SelectedValueChanged;
-            but_reset.Click += But_reset_Click;
+            but_újtárgy.Click += But_reset_Click;
             dgw_point.CellContentClick += Dgw_point_CellContentClick;
             but_újegyetem.Click += But_újegyetem_Click;
+            but_újtárgy.Click += But_újtárgy_Click;
+        }
 
+        private void But_újtárgy_Click(object sender, EventArgs e)
+        {
+            Form_újtárgy temp = new Form_újtárgy();
+            DialogResult dr = temp.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("siker");
+            }
         }
 
         private void But_újegyetem_Click(object sender, EventArgs e)

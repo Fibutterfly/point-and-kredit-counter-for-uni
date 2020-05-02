@@ -7,6 +7,38 @@ using System.Windows.Forms;
 
 namespace point_counter_for_uni
 {
+    class alairas
+    {
+        public string Text { get; set; }
+        public bool Value { get; set; }
+    }
+    class add_max
+    {
+        public string Típus_név { get; set; }
+        private int Típus_id { get; set; }
+        public int Max { get; set; }
+        public int Min { get; set; }
+        public add_max(object cb_selected, string max, string min)
+        {
+            point_types pt = (point_types)cb_selected;
+            Típus_név = pt.PT_name;
+            Típus_id = pt.PT_SK;
+            Max = int.Parse(max);
+            Min = int.Parse(min);
+            
+        }
+    }
+    class subject_chooser
+    {
+        public string Tárgy_név { get; set; }
+        public string Uni { get; set; }
+        public string Tárgy_kód { get; set; }
+        public string Elégséges { get; set; }
+        public string Közepes { get; set; }
+        public string Jó { get; set; }
+        public string Jeles { get; set; }
+        public string Aláírásos { get; set; }
+    }
     class sum_by_types
     {
         public int Pont_id { get; set; }
