@@ -87,6 +87,12 @@
     <Compile Include="Form_ujegyetem.Designer.cs">
       <DependentUpon>Form_ujegyetem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_újegyetem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_újegyetem.Designer.cs">
+      <DependentUpon>Form_újegyetem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_újpont.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     <Compile Include="Subject_name.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="University.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -153,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ujegyetem.resx">
       <DependentUpon>Form_ujegyetem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_újegyetem.resx">
+      <DependentUpon>Form_újegyetem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_újpont.resx">
       <DependentUpon>Form_újpont.cs</DependentUpon>
@@ -177,6 +189,7 @@
     <None Include="Properties\DataSources\Point.datasource" />
     <None Include="Properties\DataSources\summarized.datasource" />
     <None Include="Properties\DataSources\sum_by_types.datasource" />
+    <None Include="Properties\DataSources\University.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

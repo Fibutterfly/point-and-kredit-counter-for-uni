@@ -23,7 +23,22 @@ namespace point_counter_for_uni
             cB_év.SelectedValueChanged += CB_év_SelectedValueChanged;
             but_reset.Click += But_reset_Click;
             dgw_point.CellContentClick += Dgw_point_CellContentClick;
+            but_újegyetem.Click += But_újegyetem_Click;
 
+        }
+
+        private void But_újegyetem_Click(object sender, EventArgs e)
+        {
+            Form_újegyetem _Újegyetem = new Form_újegyetem();
+            _Újegyetem.ShowDialog();
+            DialogResult dr = _Újegyetem.DialogResult;
+            if (dr == DialogResult.OK)
+            {
+                //MessageBox.Show("siker");
+                LoadUniComboBox();
+
+                fillDgw();
+            }
         }
 
         private void CB_egyetem_SelectedIndexChanged(object sender, EventArgs e)

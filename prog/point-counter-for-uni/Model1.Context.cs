@@ -29,10 +29,11 @@ namespace point_counter_for_uni
         public virtual DbSet<Point> Points { get; set; }
         public virtual DbSet<point_types> point_types { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentxUniversity> StudentxUniversities { get; set; }
         public virtual DbSet<StudxSub> StudxSubs { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Subject_name> Subject_name { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<University> Universities { get; set; }
-        public virtual DbSet<StudentxUniversity> StudentxUniversities { get; set; }
     }
 }

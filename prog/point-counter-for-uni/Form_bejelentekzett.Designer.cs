@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.default_label3 = new point_counter_for_uni.default_label();
             this.default_label2 = new point_counter_for_uni.default_label();
             this.default_label1 = new point_counter_for_uni.default_label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,8 +50,10 @@
             this.rB_nagyobb = new point_counter_for_uni.default_radioButton();
             this.rB_kisebb = new point_counter_for_uni.default_radioButton();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.cB_egyetem = new point_counter_for_uni.default_comboBox();
+            this.button_default1 = new point_counter_for_uni.button_default();
             this.but_reset = new point_counter_for_uni.button_default();
+            this.cB_egyetem = new point_counter_for_uni.default_comboBox();
+            this.but_újegyetem = new point_counter_for_uni.button_default();
             this.dgw_point = new point_counter_for_uni.default_dataGridView();
             this.tárgynévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.évDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,7 +93,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.default_label3, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.default_label2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.default_label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 1);
@@ -104,21 +104,9 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 129);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // default_label3
-            // 
-            this.default_label3.AutoSize = true;
-            this.default_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.default_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.default_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.default_label3.Location = new System.Drawing.Point(531, 25);
-            this.default_label3.Name = "default_label3";
-            this.default_label3.Size = new System.Drawing.Size(260, 13);
-            this.default_label3.TabIndex = 2;
-            this.default_label3.Text = "jegyek";
-            this.default_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // default_label2
             // 
@@ -306,31 +294,35 @@
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.cB_egyetem, 0, 0);
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel6.Controls.Add(this.button_default1, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.but_reset, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.cB_egyetem, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.but_újegyetem, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 41);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(258, 85);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
-            // cB_egyetem
+            // button_default1
             // 
-            this.cB_egyetem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.cB_egyetem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cB_egyetem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cB_egyetem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cB_egyetem.FormattingEnabled = true;
-            this.cB_egyetem.Location = new System.Drawing.Point(3, 3);
-            this.cB_egyetem.Name = "cB_egyetem";
-            this.cB_egyetem.Size = new System.Drawing.Size(252, 21);
-            this.cB_egyetem.TabIndex = 0;
+            this.button_default1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.button_default1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_default1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_default1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button_default1.Location = new System.Drawing.Point(3, 45);
+            this.button_default1.Name = "button_default1";
+            this.button_default1.Size = new System.Drawing.Size(174, 37);
+            this.button_default1.TabIndex = 2;
+            this.button_default1.Text = "szűrők törlése";
+            this.button_default1.UseVisualStyleBackColor = false;
             // 
             // but_reset
             // 
@@ -338,12 +330,36 @@
             this.but_reset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_reset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.but_reset.Location = new System.Drawing.Point(3, 45);
+            this.but_reset.Location = new System.Drawing.Point(183, 45);
             this.but_reset.Name = "but_reset";
-            this.but_reset.Size = new System.Drawing.Size(252, 37);
+            this.but_reset.Size = new System.Drawing.Size(72, 37);
             this.but_reset.TabIndex = 1;
             this.but_reset.Text = "szűrők törlése";
             this.but_reset.UseVisualStyleBackColor = false;
+            // 
+            // cB_egyetem
+            // 
+            this.cB_egyetem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.cB_egyetem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cB_egyetem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cB_egyetem.FormattingEnabled = true;
+            this.cB_egyetem.Location = new System.Drawing.Point(3, 3);
+            this.cB_egyetem.Name = "cB_egyetem";
+            this.cB_egyetem.Size = new System.Drawing.Size(174, 21);
+            this.cB_egyetem.TabIndex = 0;
+            // 
+            // but_újegyetem
+            // 
+            this.but_újegyetem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.but_újegyetem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_újegyetem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_újegyetem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.but_újegyetem.Location = new System.Drawing.Point(183, 3);
+            this.but_újegyetem.Name = "but_újegyetem";
+            this.but_újegyetem.Size = new System.Drawing.Size(72, 36);
+            this.but_újegyetem.TabIndex = 3;
+            this.but_újegyetem.Text = "új egyetem";
+            this.but_újegyetem.UseVisualStyleBackColor = false;
             // 
             // dgw_point
             // 
@@ -454,7 +470,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private default_label default_label3;
         private default_label default_label2;
         private default_label default_label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -479,5 +494,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pontDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jegyDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource summarizedBindingSource;
+        private button_default button_default1;
+        private button_default but_újegyetem;
     }
 }

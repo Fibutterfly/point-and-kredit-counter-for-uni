@@ -40,13 +40,9 @@
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StudentxUniversity">
           <Key>
             <PropertyRef Name="su_SK" />
-            <PropertyRef Name="NEPTUN_FK" />
-            <PropertyRef Name="Uni_FK" />
           </Key>
           <Property Name="su_SK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NEPTUN_FK" Type="varchar" MaxLength="6" Nullable="false" />
@@ -81,13 +77,27 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Uni_FK" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="University">
           <Key>
-            <PropertyRef Name="Uni_ID" />
+            <PropertyRef Name="Uni_sk" />
           </Key>
           <Property Name="Uni_ID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Uni_sk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_UNI' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_UNI" />-->
         <Association Name="Max_type_points_fk0">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="Max_type_points" Type="Self.Max_type_points" Multiplicity="*" />
@@ -184,46 +194,17 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Subject_name_fk0">
-          <End Role="University" Type="Self.University" Multiplicity="1" />
-          <End Role="Subject_name" Type="Self.Subject_name" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="University">
-              <PropertyRef Name="Uni_ID" />
-            </Principal>
-            <Dependent Role="Subject_name">
-              <PropertyRef Name="Uni_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="uni_fk">
-          <End Role="University" Type="Self.University" Multiplicity="1" />
-          <End Role="StudentxUniversity" Type="Self.StudentxUniversity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="University">
-              <PropertyRef Name="Uni_ID" />
-            </Principal>
-            <Dependent Role="StudentxUniversity">
-              <PropertyRef Name="Uni_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="point_counterModelStoreContainer">
           <EntitySet Name="Max_type_points" EntityType="Self.Max_type_points" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Point" EntityType="Self.Point" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="point_types" EntityType="Self.point_types" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentxUniversity" EntityType="Self.StudentxUniversity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudxSub" EntityType="Self.StudxSub" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject_name" EntityType="Self.Subject_name" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StudentxUniversity" EntityType="Self.StudentxUniversity" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [StudentxUniversity].[su_SK] AS [su_SK], 
-    [StudentxUniversity].[NEPTUN_FK] AS [NEPTUN_FK], 
-    [StudentxUniversity].[Uni_FK] AS [Uni_FK]
-    FROM [dbo].[StudentxUniversity] AS [StudentxUniversity]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="Max_type_points_fk0" Association="Self.Max_type_points_fk0">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Max_type_points" EntitySet="Max_type_points" />
@@ -256,14 +237,6 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
             <End Role="Subject_name" EntitySet="Subject_name" />
             <End Role="Subject" EntitySet="Subject" />
           </AssociationSet>
-          <AssociationSet Name="Subject_name_fk0" Association="Self.Subject_name_fk0">
-            <End Role="University" EntitySet="University" />
-            <End Role="Subject_name" EntitySet="Subject_name" />
-          </AssociationSet>
-          <AssociationSet Name="uni_fk" Association="Self.uni_fk">
-            <End Role="University" EntitySet="University" />
-            <End Role="StudentxUniversity" EntitySet="StudentxUniversity" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -274,11 +247,12 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
           <EntitySet Name="Points" EntityType="point_counterModel.Point" />
           <EntitySet Name="point_types" EntityType="point_counterModel.point_types" />
           <EntitySet Name="Students" EntityType="point_counterModel.Student" />
+          <EntitySet Name="StudentxUniversities" EntityType="point_counterModel.StudentxUniversity" />
           <EntitySet Name="StudxSubs" EntityType="point_counterModel.StudxSub" />
           <EntitySet Name="Subjects" EntityType="point_counterModel.Subject" />
           <EntitySet Name="Subject_name" EntityType="point_counterModel.Subject_name" />
+          <EntitySet Name="sysdiagrams" EntityType="point_counterModel.sysdiagram" />
           <EntitySet Name="Universities" EntityType="point_counterModel.University" />
-          <EntitySet Name="StudentxUniversities" EntityType="point_counterModel.StudentxUniversity" />
           <AssociationSet Name="Max_type_points_fk0" Association="point_counterModel.Max_type_points_fk0">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Max_type_points" EntitySet="Max_type_points" />
@@ -310,14 +284,6 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
           <AssociationSet Name="Subject_fk0" Association="point_counterModel.Subject_fk0">
             <End Role="Subject_name" EntitySet="Subject_name" />
             <End Role="Subject" EntitySet="Subjects" />
-          </AssociationSet>
-          <AssociationSet Name="Subject_name_fk0" Association="point_counterModel.Subject_name_fk0">
-            <End Role="University" EntitySet="Universities" />
-            <End Role="Subject_name" EntitySet="Subject_name" />
-          </AssociationSet>
-          <AssociationSet Name="uni_fk" Association="point_counterModel.uni_fk">
-            <End Role="University" EntitySet="Universities" />
-            <End Role="StudentxUniversity" EntitySet="StudentxUniversities" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Max_type_points">
@@ -363,6 +329,15 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
           <NavigationProperty Name="StudentxUniversities" Relationship="point_counterModel.neptun_fk" FromRole="Student" ToRole="StudentxUniversity" />
           <NavigationProperty Name="StudxSubs" Relationship="point_counterModel.StudxSub_fk0" FromRole="Student" ToRole="StudxSub" />
         </EntityType>
+        <EntityType Name="StudentxUniversity">
+          <Key>
+            <PropertyRef Name="su_SK" />
+          </Key>
+          <Property Name="su_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NEPTUN_FK" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Uni_FK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Student" Relationship="point_counterModel.neptun_fk" FromRole="StudentxUniversity" ToRole="Student" />
+        </EntityType>
         <EntityType Name="StudxSub">
           <Key>
             <PropertyRef Name="StudxSub_SK" />
@@ -398,28 +373,24 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Uni_FK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Subjects" Relationship="point_counterModel.Subject_fk0" FromRole="Subject_name" ToRole="Subject" />
-          <NavigationProperty Name="University" Relationship="point_counterModel.Subject_name_fk0" FromRole="Subject_name" ToRole="University" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="University">
           <Key>
-            <PropertyRef Name="Uni_ID" />
+            <PropertyRef Name="Uni_sk" />
           </Key>
           <Property Name="Uni_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Subject_name" Relationship="point_counterModel.Subject_name_fk0" FromRole="University" ToRole="Subject_name" />
-          <NavigationProperty Name="StudentxUniversities" Relationship="point_counterModel.uni_fk" FromRole="University" ToRole="StudentxUniversity" />
-        </EntityType>
-        <EntityType Name="StudentxUniversity">
-          <Key>
-            <PropertyRef Name="su_SK" />
-            <PropertyRef Name="NEPTUN_FK" />
-            <PropertyRef Name="Uni_FK" />
-          </Key>
-          <Property Name="su_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NEPTUN_FK" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="Uni_FK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Student" Relationship="point_counterModel.neptun_fk" FromRole="StudentxUniversity" ToRole="Student" />
-          <NavigationProperty Name="University" Relationship="point_counterModel.uni_fk" FromRole="StudentxUniversity" ToRole="University" />
+          <Property Name="Uni_sk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="Max_type_points_fk0">
           <End Type="point_counterModel.Subject" Role="Subject" Multiplicity="1" />
@@ -517,30 +488,6 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Subject_name_fk0">
-          <End Type="point_counterModel.University" Role="University" Multiplicity="1" />
-          <End Type="point_counterModel.Subject_name" Role="Subject_name" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="University">
-              <PropertyRef Name="Uni_ID" />
-            </Principal>
-            <Dependent Role="Subject_name">
-              <PropertyRef Name="Uni_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="uni_fk">
-          <End Type="point_counterModel.University" Role="University" Multiplicity="1" />
-          <End Type="point_counterModel.StudentxUniversity" Role="StudentxUniversity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="University">
-              <PropertyRef Name="Uni_ID" />
-            </Principal>
-            <Dependent Role="StudentxUniversity">
-              <PropertyRef Name="Uni_FK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -586,6 +533,15 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="StudentxUniversities">
+            <EntityTypeMapping TypeName="point_counterModel.StudentxUniversity">
+              <MappingFragment StoreEntitySet="StudentxUniversity">
+                <ScalarProperty Name="Uni_FK" ColumnName="Uni_FK" />
+                <ScalarProperty Name="NEPTUN_FK" ColumnName="NEPTUN_FK" />
+                <ScalarProperty Name="su_SK" ColumnName="su_SK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="StudxSubs">
             <EntityTypeMapping TypeName="point_counterModel.StudxSub">
               <MappingFragment StoreEntitySet="StudxSub">
@@ -618,20 +574,23 @@ warning 6002: The table/view 'point_counter.dbo.StudentxUniversity' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Universities">
-            <EntityTypeMapping TypeName="point_counterModel.University">
-              <MappingFragment StoreEntitySet="University">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="point_counterModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StudentxUniversities">
-            <EntityTypeMapping TypeName="point_counterModel.StudentxUniversity">
-              <MappingFragment StoreEntitySet="StudentxUniversity">
-                <ScalarProperty Name="Uni_FK" ColumnName="Uni_FK" />
-                <ScalarProperty Name="NEPTUN_FK" ColumnName="NEPTUN_FK" />
-                <ScalarProperty Name="su_SK" ColumnName="su_SK" />
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="point_counterModel.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="Uni_sk" ColumnName="Uni_sk" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

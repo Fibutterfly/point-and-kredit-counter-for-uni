@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="point_counterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="point_counterEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Max_type_points" EntityType="point_counterModel.Max_type_points" />
+    <EntitySet Name="Points" EntityType="point_counterModel.Point" />
+    <EntitySet Name="point_types" EntityType="point_counterModel.point_types" />
+    <EntitySet Name="Students" EntityType="point_counterModel.Student" />
+    <EntitySet Name="StudentxUniversities" EntityType="point_counterModel.StudentxUniversity" />
+    <EntitySet Name="StudxSubs" EntityType="point_counterModel.StudxSub" />
+    <EntitySet Name="Subjects" EntityType="point_counterModel.Subject" />
+    <EntitySet Name="Subject_name" EntityType="point_counterModel.Subject_name" />
+    <EntitySet Name="sysdiagrams" EntityType="point_counterModel.sysdiagram" />
+    <EntitySet Name="Universities" EntityType="point_counterModel.University" />
+    <AssociationSet Name="Max_type_points_fk0" Association="point_counterModel.Max_type_points_fk0">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Max_type_points" EntitySet="Max_type_points" />
+    </AssociationSet>
+    <AssociationSet Name="Max_type_points_fk1" Association="point_counterModel.Max_type_points_fk1">
+      <End Role="point_types" EntitySet="point_types" />
+      <End Role="Max_type_points" EntitySet="Max_type_points" />
+    </AssociationSet>
+    <AssociationSet Name="Point_fk1" Association="point_counterModel.Point_fk1">
+      <End Role="Max_type_points" EntitySet="Max_type_points" />
+      <End Role="Point" EntitySet="Points" />
+    </AssociationSet>
+    <AssociationSet Name="Point_fk0" Association="point_counterModel.Point_fk0">
+      <End Role="StudxSub" EntitySet="StudxSubs" />
+      <End Role="Point" EntitySet="Points" />
+    </AssociationSet>
+    <AssociationSet Name="neptun_fk" Association="point_counterModel.neptun_fk">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudentxUniversity" EntitySet="StudentxUniversities" />
+    </AssociationSet>
+    <AssociationSet Name="StudxSub_fk0" Association="point_counterModel.StudxSub_fk0">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="StudxSub" EntitySet="StudxSubs" />
+    </AssociationSet>
+    <AssociationSet Name="StudxSub_fk1" Association="point_counterModel.StudxSub_fk1">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="StudxSub" EntitySet="StudxSubs" />
+    </AssociationSet>
+    <AssociationSet Name="Subject_fk0" Association="point_counterModel.Subject_fk0">
+      <End Role="Subject_name" EntitySet="Subject_name" />
+      <End Role="Subject" EntitySet="Subjects" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Max_type_points">
+    <Key>
+      <PropertyRef Name="Act_max_SK" />
+    </Key>
+    <Property Name="Act_max_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sub_FK" Type="Int32" Nullable="false" />
+    <Property Name="PT_FK" Type="Int32" Nullable="false" />
+    <Property Name="max" Type="Int32" Nullable="false" />
+    <Property Name="min" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Subject" Relationship="point_counterModel.Max_type_points_fk0" FromRole="Max_type_points" ToRole="Subject" />
+    <NavigationProperty Name="point_types" Relationship="point_counterModel.Max_type_points_fk1" FromRole="Max_type_points" ToRole="point_types" />
+    <NavigationProperty Name="Points" Relationship="point_counterModel.Point_fk1" FromRole="Max_type_points" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="Point_SK" />
+    </Key>
+    <Property Name="Point_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Point1" Type="Double" Nullable="false" />
+    <Property Name="StudxSub_FK" Type="Int32" Nullable="false" />
+    <Property Name="PT_FK" Type="Int32" Nullable="false" />
+    <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Max_type_points" Relationship="point_counterModel.Point_fk1" FromRole="Point" ToRole="Max_type_points" />
+    <NavigationProperty Name="StudxSub" Relationship="point_counterModel.Point_fk0" FromRole="Point" ToRole="StudxSub" />
+  </EntityType>
+  <EntityType Name="point_types">
+    <Key>
+      <PropertyRef Name="PT_SK" />
+    </Key>
+    <Property Name="PT_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PT_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Max_type_points" Relationship="point_counterModel.Max_type_points_fk1" FromRole="point_types" ToRole="Max_type_points" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="NEPTUN" />
+    </Key>
+    <Property Name="NEPTUN" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="StudentxUniversities" Relationship="point_counterModel.neptun_fk" FromRole="Student" ToRole="StudentxUniversity" />
+    <NavigationProperty Name="StudxSubs" Relationship="point_counterModel.StudxSub_fk0" FromRole="Student" ToRole="StudxSub" />
+  </EntityType>
+  <EntityType Name="StudentxUniversity">
+    <Key>
+      <PropertyRef Name="su_SK" />
+    </Key>
+    <Property Name="su_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NEPTUN_FK" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Uni_FK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Student" Relationship="point_counterModel.neptun_fk" FromRole="StudentxUniversity" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="StudxSub">
+    <Key>
+      <PropertyRef Name="StudxSub_SK" />
+    </Key>
+    <Property Name="StudxSub_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NEPTUN_FK" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Sub_FK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Points" Relationship="point_counterModel.Point_fk0" FromRole="StudxSub" ToRole="Point" />
+    <NavigationProperty Name="Student" Relationship="point_counterModel.StudxSub_fk0" FromRole="StudxSub" ToRole="Student" />
+    <NavigationProperty Name="Subject" Relationship="point_counterModel.StudxSub_fk1" FromRole="StudxSub" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Sub_SK" />
+    </Key>
+    <Property Name="Sub_SK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCode_FK" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="elegseges" Type="Int32" />
+    <Property Name="kozepes" Type="Int32" />
+    <Property Name="jo" Type="Int32" />
+    <Property Name="jeles" Type="Int32" />
+    <Property Name="alairas" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Max_type_points" Relationship="point_counterModel.Max_type_points_fk0" FromRole="Subject" ToRole="Max_type_points" />
+    <NavigationProperty Name="StudxSubs" Relationship="point_counterModel.StudxSub_fk1" FromRole="Subject" ToRole="StudxSub" />
+    <NavigationProperty Name="Subject_name" Relationship="point_counterModel.Subject_fk0" FromRole="Subject" ToRole="Subject_name" />
+  </EntityType>
+  <EntityType Name="Subject_name">
+    <Key>
+      <PropertyRef Name="SubCode_ID" />
+    </Key>
+    <Property Name="SubCode_ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Uni_FK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Subjects" Relationship="point_counterModel.Subject_fk0" FromRole="Subject_name" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="Uni_sk" />
+    </Key>
+    <Property Name="Uni_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Uni_sk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="Max_type_points_fk0">
+    <End Type="point_counterModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="point_counterModel.Max_type_points" Role="Max_type_points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Sub_SK" />
+      </Principal>
+      <Dependent Role="Max_type_points">
+        <PropertyRef Name="Sub_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Max_type_points_fk1">
+    <End Type="point_counterModel.point_types" Role="point_types" Multiplicity="1" />
+    <End Type="point_counterModel.Max_type_points" Role="Max_type_points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="point_types">
+        <PropertyRef Name="PT_SK" />
+      </Principal>
+      <Dependent Role="Max_type_points">
+        <PropertyRef Name="PT_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Point_fk1">
+    <End Type="point_counterModel.Max_type_points" Role="Max_type_points" Multiplicity="1" />
+    <End Type="point_counterModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Max_type_points">
+        <PropertyRef Name="Act_max_SK" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PT_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Point_fk0">
+    <End Type="point_counterModel.StudxSub" Role="StudxSub" Multiplicity="1" />
+    <End Type="point_counterModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudxSub">
+        <PropertyRef Name="StudxSub_SK" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="StudxSub_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="neptun_fk">
+    <End Type="point_counterModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="point_counterModel.StudentxUniversity" Role="StudentxUniversity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="NEPTUN" />
+      </Principal>
+      <Dependent Role="StudentxUniversity">
+        <PropertyRef Name="NEPTUN_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudxSub_fk0">
+    <End Type="point_counterModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="point_counterModel.StudxSub" Role="StudxSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="NEPTUN" />
+      </Principal>
+      <Dependent Role="StudxSub">
+        <PropertyRef Name="NEPTUN_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudxSub_fk1">
+    <End Type="point_counterModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="point_counterModel.StudxSub" Role="StudxSub" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Sub_SK" />
+      </Principal>
+      <Dependent Role="StudxSub">
+        <PropertyRef Name="Sub_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subject_fk0">
+    <End Type="point_counterModel.Subject_name" Role="Subject_name" Multiplicity="1" />
+    <End Type="point_counterModel.Subject" Role="Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject_name">
+        <PropertyRef Name="SubCode_ID" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="SubCode_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

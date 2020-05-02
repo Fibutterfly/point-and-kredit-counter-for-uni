@@ -19,6 +19,5 @@ namespace point_counter_for_uni
         public string Uni_FK { get; set; }
     
         public virtual Student Student { get; set; }
-        public virtual University University { get; set; }
     }
 }

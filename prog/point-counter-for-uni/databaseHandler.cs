@@ -9,6 +9,57 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public void addStudxuni(string uni)
+        {
+            StudentxUniversity sxu = new StudentxUniversity()
+            {
+                NEPTUN_FK = user.NEPTUN,
+                Uni_FK = uni
+            };
+            context.StudentxUniversities.Add(sxu);
+            Save();
+        }
+        
+        static public List<University> GetUniversities()
+        {
+            
+            List<University> rtn = new List<University>();
+            try
+            {
+                //rtn = (from u in context.Universities
+                //       where u.StudentxUniversities.Select(x => x.NEPTUN_FK).FirstOrDefault() != user.NEPTUN
+
+                //       select u).ToList();
+                //rtn = (from sxu in context.StudentxUniversities
+                //       join u in context.Universities on sxu.Uni_FK equals u.Uni_ID
+                //       //where sxu.NEPTUN_FK != user.NEPTUN
+                //       select u).ToList();
+                var querry = from u in context.Universities
+                             select u;
+                var used = (from sxu in context.StudentxUniversities
+                           where sxu.NEPTUN_FK == user.NEPTUN
+                           select sxu.Uni_FK).ToList();
+
+                foreach (var item in querry)
+                {
+                    if (!used.Contains(item.Uni_ID))
+                    {
+                        rtn.Add(item);
+
+                    }
+                    //University temp = new University()
+                    //{
+                    //    Name = item.Name,
+                    //    Uni_ID = item.Uni_id
+                    //};
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return rtn;
+        }
         static public void del_point(Point delete)
         {
             context.Points.Remove(delete);
