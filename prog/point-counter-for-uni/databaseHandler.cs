@@ -74,12 +74,14 @@ namespace point_counter_for_uni
             }
             return rtn;
         }
-        static public List<subject_chooser> GetSubject_Choosers()
+        static public List<subject_chooser> GetSubject_Choosers(string kód, string név)
         {
             List<subject_chooser> rtn = new List<subject_chooser>();
             try
             {
-                var querry = from sub in context.Subjects 
+                var querry = from sub in context.Subjects
+                             where sub.SubCode_FK.Contains(kód)
+                             && sub.Subject_name.Name.Contains(név)
                              select sub;
                 var denie = from sxs in context.StudxSubs
                             where sxs.NEPTUN_FK == user.NEPTUN

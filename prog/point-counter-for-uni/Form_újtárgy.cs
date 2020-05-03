@@ -17,14 +17,26 @@ namespace point_counter_for_uni
         {
             InitializeComponent();
 
-            subjectchooserBindingSource.DataSource = databaseHandler.GetSubject_Choosers();
+            
 
             but_nope.Click += But_nope_Click;
             but_újlistaelem_init();
             tB_year_init();
             cB_félév_init();
+            tb_kód.TextChanged += filter_text_change;
+            tb_név.TextChanged += filter_text_change;
+            sub_fill();
         }
 
+        private void filter_text_change(object sender, EventArgs e)
+        {
+            sub_fill();
+        }
+
+        private void sub_fill()
+        {
+            subjectchooserBindingSource.DataSource = databaseHandler.GetSubject_Choosers(tb_kód.Text, tb_név.Text);
+        }
         private void but_újlistaelem_init()
         {
             but_újlistaelem.Click += But_újlistaelem_Click;
@@ -58,7 +70,7 @@ namespace point_counter_for_uni
             DialogResult dr = form_Újtantárgy.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                subjectchooserBindingSource.DataSource = databaseHandler.GetSubject_Choosers();
+                sub_fill();
             }
         }
 

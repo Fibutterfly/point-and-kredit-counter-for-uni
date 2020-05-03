@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgw_subchose = new point_counter_for_uni.default_dataGridView();
             this.tárgynévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +47,8 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.second_textbox1 = new point_counter_for_uni.second_textbox();
-            this.second_textbox2 = new point_counter_for_uni.second_textbox();
+            this.tb_kód = new point_counter_for_uni.second_textbox();
+            this.tb_név = new point_counter_for_uni.second_textbox();
             this.second_label1 = new point_counter_for_uni.second_label();
             this.second_label2 = new point_counter_for_uni.second_label();
             this.but_nope = new point_counter_for_uni.second_button();
@@ -91,14 +91,14 @@
             this.dgw_subchose.AllowUserToDeleteRows = false;
             this.dgw_subchose.AutoGenerateColumns = false;
             this.dgw_subchose.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw_subchose.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_subchose.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgw_subchose.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_subchose.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tárgynévDataGridViewTextBoxColumn,
@@ -110,29 +110,29 @@
             this.jelesDataGridViewTextBoxColumn,
             this.aláírásosDataGridViewTextBoxColumn});
             this.dgw_subchose.DataSource = this.subjectchooserBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgw_subchose.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgw_subchose.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgw_subchose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_subchose.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
             this.dgw_subchose.Location = new System.Drawing.Point(3, 3);
             this.dgw_subchose.Name = "dgw_subchose";
             this.dgw_subchose.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw_subchose.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(91)))), ((int)(((byte)(98)))));
-            this.dgw_subchose.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_subchose.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(91)))), ((int)(((byte)(98)))));
+            this.dgw_subchose.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgw_subchose.Size = new System.Drawing.Size(845, 354);
             this.dgw_subchose.TabIndex = 0;
             // 
@@ -239,8 +239,8 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel4.Controls.Add(this.second_textbox1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.second_textbox2, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tb_kód, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tb_név, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.second_label1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.second_label2, 0, 1);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
@@ -251,25 +251,25 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(130, 72);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // second_textbox1
+            // tb_kód
             // 
-            this.second_textbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.second_textbox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.second_textbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_textbox1.Location = new System.Drawing.Point(55, 3);
-            this.second_textbox1.Name = "second_textbox1";
-            this.second_textbox1.Size = new System.Drawing.Size(72, 20);
-            this.second_textbox1.TabIndex = 0;
+            this.tb_kód.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.tb_kód.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_kód.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tb_kód.Location = new System.Drawing.Point(55, 3);
+            this.tb_kód.Name = "tb_kód";
+            this.tb_kód.Size = new System.Drawing.Size(72, 20);
+            this.tb_kód.TabIndex = 0;
             // 
-            // second_textbox2
+            // tb_név
             // 
-            this.second_textbox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.second_textbox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.second_textbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_textbox2.Location = new System.Drawing.Point(55, 39);
-            this.second_textbox2.Name = "second_textbox2";
-            this.second_textbox2.Size = new System.Drawing.Size(72, 20);
-            this.second_textbox2.TabIndex = 1;
+            this.tb_név.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.tb_név.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_név.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tb_név.Location = new System.Drawing.Point(55, 39);
+            this.tb_név.Name = "tb_név";
+            this.tb_név.Size = new System.Drawing.Size(72, 20);
+            this.tb_név.TabIndex = 1;
             // 
             // second_label1
             // 
@@ -278,9 +278,9 @@
             this.second_label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.second_label1.Location = new System.Drawing.Point(3, 0);
             this.second_label1.Name = "second_label1";
-            this.second_label1.Size = new System.Drawing.Size(42, 26);
+            this.second_label1.Size = new System.Drawing.Size(26, 13);
             this.second_label1.TabIndex = 2;
-            this.second_label1.Text = "second_label1";
+            this.second_label1.Text = "Kód";
             // 
             // second_label2
             // 
@@ -289,9 +289,9 @@
             this.second_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.second_label2.Location = new System.Drawing.Point(3, 36);
             this.second_label2.Name = "second_label2";
-            this.second_label2.Size = new System.Drawing.Size(42, 26);
+            this.second_label2.Size = new System.Drawing.Size(27, 13);
             this.second_label2.TabIndex = 3;
-            this.second_label2.Text = "second_label2";
+            this.second_label2.Text = "Név";
             // 
             // but_nope
             // 
@@ -439,8 +439,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private second_textbox second_textbox1;
-        private second_textbox second_textbox2;
+        private second_textbox tb_kód;
+        private second_textbox tb_név;
         private second_label second_label1;
         private second_label second_label2;
         private second_button but_nope;
