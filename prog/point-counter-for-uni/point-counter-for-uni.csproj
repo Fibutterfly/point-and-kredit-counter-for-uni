@@ -99,6 +99,12 @@
     <Compile Include="Form_újpont.Designer.cs">
       <DependentUpon>Form_újpont.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_újponttípus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_újponttípus.Designer.cs">
+      <DependentUpon>Form_újponttípus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_újtantárgy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_újpont.resx">
       <DependentUpon>Form_újpont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_újponttípus.resx">
+      <DependentUpon>Form_újponttípus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_újtantárgy.resx">
       <DependentUpon>Form_újtantárgy.cs</DependentUpon>

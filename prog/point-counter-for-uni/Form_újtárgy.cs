@@ -13,6 +13,7 @@ namespace point_counter_for_uni
     public partial class Form_újtárgy : second_form
     {
         List<TextBox> validate_textBoxes = new List<TextBox>();
+        int Aktívsor = 0;
         public Form_újtárgy()
         {
             InitializeComponent();
@@ -21,11 +22,46 @@ namespace point_counter_for_uni
 
             but_nope.Click += But_nope_Click;
             but_újlistaelem_init();
+            but_felvétel.Click += But_felvétel_Click;
             tB_year_init();
             cB_félév_init();
             tb_kód.TextChanged += filter_text_change;
             tb_név.TextChanged += filter_text_change;
             sub_fill();
+            dgw_subchose.CellClick += Dgw_subchose_CellClick;
+        }
+
+        private void Dgw_subchose_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Aktívsor = e.RowIndex;
+        }
+
+        private void But_felvétel_Click(object sender, EventArgs e)
+        {
+            if (!regexer.itTextBoxEmpty(validate_textBoxes))
+            {
+                return;
+            }
+            subject_chooser sch = ((List<subject_chooser>)subjectchooserBindingSource.DataSource)[Aktívsor];
+            string input_év = $"{tB_year.Text}/{cB_félév.SelectedValue}";
+            //MessageBox.Show(sch.Sub_SK.ToString());
+            if (sch.Év == input_év)
+            {
+                //MessageBox.Show("már csak felkéne venni");
+                databaseHandler.add_StudxSub(sch.Sub_SK);
+                sub_fill();
+            }
+            else
+            {
+                //MessageBox.Show(sch.Év + " " + input_év);
+                Form_újponttípus tmpp = new Form_újponttípus(sch.Sub_SK);
+                DialogResult dr = tmpp.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    databaseHandler.add_StudxSub(sch.Sub_SK);
+                    sub_fill();
+                }
+            }
         }
 
         private void filter_text_change(object sender, EventArgs e)

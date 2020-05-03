@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgw_subchose = new point_counter_for_uni.default_dataGridView();
             this.tárgynévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +55,11 @@
             this.but_újlistaelem = new point_counter_for_uni.second_button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.second_label3 = new point_counter_for_uni.second_label();
-            this.second_label4 = new point_counter_for_uni.second_label();
+            this.Év = new point_counter_for_uni.second_label();
+            this.Félév = new point_counter_for_uni.second_label();
             this.tB_year = new point_counter_for_uni.second_textbox();
             this.cB_félév = new point_counter_for_uni.second_comboBox();
-            this.second_button1 = new point_counter_for_uni.second_button();
+            this.but_felvétel = new point_counter_for_uni.second_button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_subchose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectchooserBindingSource)).BeginInit();
@@ -91,14 +91,14 @@
             this.dgw_subchose.AllowUserToDeleteRows = false;
             this.dgw_subchose.AutoGenerateColumns = false;
             this.dgw_subchose.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw_subchose.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_subchose.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgw_subchose.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_subchose.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tárgynévDataGridViewTextBoxColumn,
@@ -110,29 +110,29 @@
             this.jelesDataGridViewTextBoxColumn,
             this.aláírásosDataGridViewTextBoxColumn});
             this.dgw_subchose.DataSource = this.subjectchooserBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgw_subchose.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgw_subchose.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgw_subchose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_subchose.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
             this.dgw_subchose.Location = new System.Drawing.Point(3, 3);
             this.dgw_subchose.Name = "dgw_subchose";
             this.dgw_subchose.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw_subchose.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(91)))), ((int)(((byte)(98)))));
-            this.dgw_subchose.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw_subchose.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(91)))), ((int)(((byte)(98)))));
+            this.dgw_subchose.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgw_subchose.Size = new System.Drawing.Size(845, 354);
             this.dgw_subchose.TabIndex = 0;
             // 
@@ -199,15 +199,15 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 9;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.980198F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.82178F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.920792F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.76238F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.970297F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.82178F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.920792F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.82178F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.980198F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.but_nope, 7, 0);
             this.tableLayoutPanel2.Controls.Add(this.but_újlistaelem, 5, 0);
@@ -231,7 +231,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(146, 78);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(144, 78);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -301,7 +301,7 @@
             this.but_nope.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.but_nope.Location = new System.Drawing.Point(676, 3);
             this.but_nope.Name = "but_nope";
-            this.but_nope.Size = new System.Drawing.Size(146, 78);
+            this.but_nope.Size = new System.Drawing.Size(144, 78);
             this.but_nope.TabIndex = 2;
             this.but_nope.Text = "Megszakítás";
             this.but_nope.UseVisualStyleBackColor = false;
@@ -312,9 +312,9 @@
             this.but_újlistaelem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.but_újlistaelem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_újlistaelem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.but_újlistaelem.Location = new System.Drawing.Point(457, 3);
+            this.but_újlistaelem.Location = new System.Drawing.Point(460, 3);
             this.but_újlistaelem.Name = "but_újlistaelem";
-            this.but_újlistaelem.Size = new System.Drawing.Size(146, 78);
+            this.but_újlistaelem.Size = new System.Drawing.Size(144, 78);
             this.but_újlistaelem.TabIndex = 1;
             this.but_újlistaelem.Text = "Újtárgy a listába";
             this.but_újlistaelem.UseVisualStyleBackColor = false;
@@ -325,13 +325,14 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.second_button1, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(238, 3);
+            this.tableLayoutPanel5.Controls.Add(this.but_felvétel, 1, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(235, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(146, 78);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(194, 78);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
             // tableLayoutPanel6
@@ -339,10 +340,11 @@
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.second_label3, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.second_label4, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.Év, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Félév, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.tB_year, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.cB_félév, 0, 3);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 4;
@@ -350,30 +352,30 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(67, 72);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(91, 72);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
-            // second_label3
+            // Év
             // 
-            this.second_label3.AutoSize = true;
-            this.second_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.second_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_label3.Location = new System.Drawing.Point(3, 0);
-            this.second_label3.Name = "second_label3";
-            this.second_label3.Size = new System.Drawing.Size(56, 12);
-            this.second_label3.TabIndex = 0;
-            this.second_label3.Text = "second_label3";
+            this.Év.AutoSize = true;
+            this.Év.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Év.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Év.Location = new System.Drawing.Point(3, 0);
+            this.Év.Name = "Év";
+            this.Év.Size = new System.Drawing.Size(20, 12);
+            this.Év.TabIndex = 0;
+            this.Év.Text = "Év";
             // 
-            // second_label4
+            // Félév
             // 
-            this.second_label4.AutoSize = true;
-            this.second_label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.second_label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_label4.Location = new System.Drawing.Point(3, 35);
-            this.second_label4.Name = "second_label4";
-            this.second_label4.Size = new System.Drawing.Size(56, 12);
-            this.second_label4.TabIndex = 1;
-            this.second_label4.Text = "second_label4";
+            this.Félév.AutoSize = true;
+            this.Félév.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Félév.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Félév.Location = new System.Drawing.Point(3, 35);
+            this.Félév.Name = "Félév";
+            this.Félév.Size = new System.Drawing.Size(33, 12);
+            this.Félév.TabIndex = 1;
+            this.Félév.Text = "Félév";
             // 
             // tB_year
             // 
@@ -398,17 +400,18 @@
             this.cB_félév.Size = new System.Drawing.Size(61, 21);
             this.cB_félév.TabIndex = 3;
             // 
-            // second_button1
+            // but_felvétel
             // 
-            this.second_button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.second_button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.second_button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.second_button1.Location = new System.Drawing.Point(76, 3);
-            this.second_button1.Name = "second_button1";
-            this.second_button1.Size = new System.Drawing.Size(67, 23);
-            this.second_button1.TabIndex = 1;
-            this.second_button1.Text = "second_button1";
-            this.second_button1.UseVisualStyleBackColor = false;
+            this.but_felvétel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.but_felvétel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_felvétel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_felvétel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.but_felvétel.Location = new System.Drawing.Point(100, 3);
+            this.but_felvétel.Name = "but_felvétel";
+            this.but_felvétel.Size = new System.Drawing.Size(91, 72);
+            this.but_felvétel.TabIndex = 1;
+            this.but_felvétel.Text = "Tárgyfelvétele";
+            this.but_felvétel.UseVisualStyleBackColor = false;
             // 
             // Form_újtárgy
             // 
@@ -456,10 +459,10 @@
         private System.Windows.Forms.BindingSource subjectchooserBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private second_label second_label3;
-        private second_label second_label4;
+        private second_label Év;
+        private second_label Félév;
         private second_textbox tB_year;
         private second_comboBox cB_félév;
-        private second_button second_button1;
+        private second_button but_felvétel;
     }
 }

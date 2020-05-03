@@ -9,6 +9,16 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public void add_StudxSub(int sub_sk)
+        {
+            StudxSub sxu = new StudxSub()
+            {
+                NEPTUN_FK = user.NEPTUN,
+                Sub_FK = sub_sk
+            };
+            context.StudxSubs.Add(sxu);
+            Save();
+        }
         static public void add_studname(string kod ,string name, string uni)
         {
             Subject_name sn = new Subject_name()
@@ -24,6 +34,12 @@ namespace point_counter_for_uni
         {
             add_studname(tárgy_kód, tár_név, (string)egyetem);
             int sub_sk = add_subject(tárgy_kód, kettes, hármas, négyes, ötös, aláírás, year, semester);
+            add_maxtype(újtípuses, sub_sk);
+
+        }
+
+        public static void add_maxtype(List<add_max> újtípuses, int sub_sk)
+        {
             foreach (add_max item in újtípuses)
             {
                 Max_type_points mtp = new Max_type_points()
@@ -37,7 +53,6 @@ namespace point_counter_for_uni
                 context.Max_type_points.Add(mtp);
                 Save();
             }
-
         }
 
         private static int add_subject(string tárgy_kód, string kettes, string hármas, string négyes, string ötös, object aláírás, string year, string semester)
@@ -94,7 +109,8 @@ namespace point_counter_for_uni
                     }
                     subject_chooser sch = new subject_chooser()
                     {
-
+                        Sub_SK = item.Sub_SK,
+                        Év = item.Year,
                         Aláírásos = (item.alairas) ? ("Aláírásos") : ("Nem aláírásos"),
                         Elégséges = (item.elegseges == null) ? ("Nem tudjuk") : (item.elegseges.ToString()),
                         Jeles = (item.jeles == null) ? ("Nem tudjuk") : (item.jeles.ToString()),

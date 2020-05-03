@@ -30,6 +30,8 @@ namespace point_counter_for_uni
     }
     class subject_chooser
     {
+        public int Sub_SK { get; set; }
+        public string Év { get; set; }
         public string Tárgy_név { get; set; }
         public string Uni { get; set; }
         public string Tárgy_kód { get; set; }
