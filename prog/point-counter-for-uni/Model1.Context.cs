@@ -13,10 +13,10 @@ namespace point_counter_for_uni
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class point_counterEntities1 : DbContext
+    public partial class point_counterEntities2 : DbContext
     {
-        public point_counterEntities1()
-            : base("name=point_counterEntities1")
+        public point_counterEntities2()
+            : base("name=point_counterEntities2")
         {
         }
     
@@ -33,7 +33,6 @@ namespace point_counter_for_uni
         public virtual DbSet<StudxSub> StudxSubs { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Subject_name> Subject_name { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<University> Universities { get; set; }
     }
 }

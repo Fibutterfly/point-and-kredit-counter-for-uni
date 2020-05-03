@@ -8,7 +8,7 @@ namespace point_counter_for_uni
 {
     static class databaseHandler
     {
-        static point_counterEntities1 context = new point_counterEntities1();
+        static point_counterEntities2 context = new point_counterEntities2();
         static public void add_StudxSub(int sub_sk)
         {
             StudxSub sxu = new StudxSub()

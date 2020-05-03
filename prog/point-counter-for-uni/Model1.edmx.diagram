@@ -4,25 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7f1778cf78354996b552089da72ec257" Name="Diagram1">
-        <EntityTypeShape EntityType="point_counterModel.Max_type_points" Width="1.5" PointX="5.25" PointY="2.5" />
-        <EntityTypeShape EntityType="point_counterModel.Point" Width="1.5" PointX="10.5" PointY="2.625" />
-        <EntityTypeShape EntityType="point_counterModel.point_types" Width="1.5" PointX="3" PointY="8" />
-        <EntityTypeShape EntityType="point_counterModel.Student" Width="1.5" PointX="6" PointY="7.875" />
-        <EntityTypeShape EntityType="point_counterModel.StudentxUniversity" Width="1.5" PointX="8.25" PointY="8" />
-        <EntityTypeShape EntityType="point_counterModel.StudxSub" Width="1.5" PointX="8.25" PointY="2.75" />
-        <EntityTypeShape EntityType="point_counterModel.Subject" Width="1.5" PointX="3" PointY="2.25" />
-        <EntityTypeShape EntityType="point_counterModel.Subject_name" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="point_counterModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="point_counterModel.University" Width="1.5" PointX="2.75" PointY="10.75" />
-        <AssociationConnector Association="point_counterModel.Max_type_points_fk0" />
-        <AssociationConnector Association="point_counterModel.Max_type_points_fk1" />
-        <AssociationConnector Association="point_counterModel.Point_fk1" />
-        <AssociationConnector Association="point_counterModel.Point_fk0" />
-        <AssociationConnector Association="point_counterModel.neptun_fk" />
-        <AssociationConnector Association="point_counterModel.StudxSub_fk0" />
-        <AssociationConnector Association="point_counterModel.StudxSub_fk1" />
-        <AssociationConnector Association="point_counterModel.Subject_fk0" />
+      <Diagram DiagramId="d96aad300fe04baeac09be3fe525122c" Name="Diagram1">
+        <EntityTypeShape EntityType="point_counterModel.Max_type_points" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.Point" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.point_types" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.Student" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.StudentxUniversity" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.StudxSub" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.Subject" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.Subject_name" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="point_counterModel.University" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="point_counterModel.Max_type_points_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.Max_type_points_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.Point_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.Point_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.neptun_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.StudxSub_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.StudxSub_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="point_counterModel.Subject_fk0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
