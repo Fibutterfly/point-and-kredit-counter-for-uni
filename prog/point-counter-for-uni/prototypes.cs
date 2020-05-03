@@ -41,7 +41,7 @@ namespace point_counter_for_uni
             //MessageBox.Show("Mi a faszom");
             if (re.IsMatch(tB.Text))
             {
-                //e.Cancel = true;
+                e.Cancel = true;
                 if (!String.IsNullOrEmpty(tB.Text))
                 {
                     e.Cancel = false;

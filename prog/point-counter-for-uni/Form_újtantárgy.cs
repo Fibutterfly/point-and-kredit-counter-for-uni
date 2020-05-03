@@ -36,7 +36,7 @@ namespace point_counter_for_uni
             cB_egyetem_init();
             cB_aláírás_init();
             cB_típus_init();
-            addmaxBindingSource.DataSource = add_Maxes;
+            add_maxBindingSource.DataSource = add_Maxes;
         }
 
         private void But_addtype_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace point_counter_for_uni
             }
 
             add_max temp = new add_max(cB_típus.SelectedItem, tB_max.Text,tB_min.Text);
-            addmaxBindingSource.Add(temp);
+            add_maxBindingSource.Add(temp);
         }
 
         private void but_ok_init()
@@ -97,7 +97,7 @@ namespace point_counter_for_uni
         private void tB_min_init()
         {
             tB_min.Validating += regexer.regex_textBox;
-            tB_min.CausesValidation = false;
+            //tB_min.CausesValidation = false;
             tB_min.Tag = regexer.Csak_szam;
             validating_textboxes_pt.Add(tB_min);
             tB_min.Text = "0";
@@ -106,7 +106,7 @@ namespace point_counter_for_uni
         private void tB_max_init()
         {
             tB_max.Tag = regexer.Csak_szam;
-            tB_max.CausesValidation = false;
+            //tB_max.CausesValidation = false;
             tB_max.Validating += regexer.regex_textBox;
             validating_textboxes_pt.Add(tB_max);
             tB_min.Text = "100";
@@ -115,7 +115,7 @@ namespace point_counter_for_uni
         private void tB_öt_init()
         {
             tB_öt.Validating += regexer.regex_textBox;
-            tB_öt.CausesValidation = false;
+            //tB_öt.CausesValidation = false;
             tB_öt.Tag = regexer.Csak_szam;
             validating_textboxes.Add(tB_öt);
         }
@@ -123,7 +123,7 @@ namespace point_counter_for_uni
         private void tB_négy_init()
         {
             tB_négy.Tag = regexer.Csak_szam;
-            tB_négy.CausesValidation = false;
+            //tB_négy.CausesValidation = false;
             tB_négy.Validating += regexer.regex_textBox;
             validating_textboxes.Add(tB_négy);
         }
@@ -131,7 +131,7 @@ namespace point_counter_for_uni
         private void tB_három_init()
         {
             tb_három.Tag = regexer.Csak_szam;
-            tb_három.CausesValidation = false;
+            //tb_három.CausesValidation = false;
             tb_három.Validating += regexer.regex_textBox;
             validating_textboxes.Add(tb_három);
         }
@@ -139,7 +139,7 @@ namespace point_counter_for_uni
         private void tB_kettes_init()
         {
             tB_kettes.Tag = regexer.Csak_szam;
-            tB_kettes.CausesValidation = false;
+            //tB_kettes.CausesValidation = false;
             tB_kettes.Validating += regexer.regex_textBox;
             validating_textboxes.Add(tB_kettes);
         }
@@ -147,16 +147,16 @@ namespace point_counter_for_uni
         private void tB_tárgynév_init()
         {
             tB_tárgynév.Tag = regexer.Nev;
-            tB_tárgynév.CausesValidation = false;
-            tB_tárgynév.Validating += regexer.regex_textBox;
-            validating_textboxes.Add(tB_tárgynév);
+            //tB_tárgynév.CausesValidation = false;
+            //tB_tárgynév.Validating += regexer.regex_textBox;
+            //validating_textboxes.Add(tB_tárgynév);
         }
 
         private void tB_tárgykód_init()
         {
-            tB_tárgykód.Tag = regexer.Nev;
-            tB_tárgykód.CausesValidation = false;
-            tB_tárgykód.Validating += regexer.regex_textBox;
+            //tB_tárgykód.Tag = regexer.Nev;
+            ////tB_tárgykód.CausesValidation = false;
+            //tB_tárgykód.Validating += regexer.regex_textBox;
             validating_textboxes.Add(tB_tárgykód);
         }
 
@@ -184,7 +184,11 @@ namespace point_counter_for_uni
             {
                 return;
             }
-            MessageBox.Show(Year);
+
+            databaseHandler.add_újtárgy(tB_tárgykód.Text, tB_tárgynév.Text,cB_egyetem.SelectedItem,tB_kettes.Text, tb_három.Text, tB_négy.Text, tB_öt.Text, cB_aláírás.SelectedItem,add_Maxes, Year, Semester);
+            //MessageBox.Show(Year);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

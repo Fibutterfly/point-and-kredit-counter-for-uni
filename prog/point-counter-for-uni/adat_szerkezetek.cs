@@ -15,7 +15,7 @@ namespace point_counter_for_uni
     class add_max
     {
         public string Típus_név { get; set; }
-        private int Típus_id { get; set; }
+        public int Típus_id { get; set; }
         public int Max { get; set; }
         public int Min { get; set; }
         public add_max(object cb_selected, string max, string min)

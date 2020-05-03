@@ -9,6 +9,56 @@ namespace point_counter_for_uni
     static class databaseHandler
     {
         static point_counterEntities1 context = new point_counterEntities1();
+        static public void add_studname(string kod ,string name, string uni)
+        {
+            Subject_name sn = new Subject_name()
+            {
+                Name = name,
+                Uni_FK = uni,
+                SubCode_ID = kod
+            };
+            context.Subject_name.Add(sn);
+            Save();
+        }
+        static public void add_újtárgy(string tárgy_kód, string tár_név, object egyetem, string kettes, string hármas, string négyes, string ötös, object aláírás, List<add_max> újtípuses, string year, string semester)
+        {
+            add_studname(tárgy_kód, tár_név, (string)egyetem);
+            int sub_sk = add_subject(tárgy_kód, kettes, hármas, négyes, ötös, aláírás, year, semester);
+            foreach (add_max item in újtípuses)
+            {
+                Max_type_points mtp = new Max_type_points()
+                {
+                    Sub_FK = sub_sk,
+                    PT_FK = item.Típus_id,
+                    max = item.Max,
+                    min = item.Min
+
+                };
+                context.Max_type_points.Add(mtp);
+                Save();
+            }
+
+        }
+
+        private static int add_subject(string tárgy_kód, string kettes, string hármas, string négyes, string ötös, object aláírás, string year, string semester)
+        {
+            alairas alairas = (alairas)aláírás;
+            Subject sub = new Subject()
+            {
+                SubCode_FK = (string)tárgy_kód,
+                Year = (string)$"{year}/{semester}",
+                elegseges = (int?)int.Parse(kettes),
+                kozepes = (int?)int.Parse(hármas),
+                jo = (int?)int.Parse(négyes),
+                jeles = (int?)int.Parse(ötös),
+                alairas = (bool)alairas.Value
+            };
+            context.Subjects.Add(sub);
+            Save();
+            return sub.Sub_SK;
+            
+        }
+
         static public List<point_types> GetPoint_Types()
         {
             List<point_types> rtn = new List<point_types>();

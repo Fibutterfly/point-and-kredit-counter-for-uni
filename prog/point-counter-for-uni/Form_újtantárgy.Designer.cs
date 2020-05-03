@@ -55,9 +55,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.dgw_minmaxtbl = new point_counter_for_uni.default_dataGridView();
             this.típusnévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addmaxBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.add_maxBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.second_label9 = new point_counter_for_uni.second_label();
             this.second_label10 = new point_counter_for_uni.second_label();
@@ -65,16 +65,16 @@
             this.cB_típus = new point_counter_for_uni.second_comboBox();
             this.tB_max = new point_counter_for_uni.second_textbox();
             this.tB_min = new point_counter_for_uni.second_textbox();
+            this.but_addtype = new point_counter_for_uni.second_button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.but_ok = new point_counter_for_uni.second_button();
             this.but_mégse = new point_counter_for_uni.second_button();
-            this.but_addtype = new point_counter_for_uni.second_button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_minmaxtbl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addmaxBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_maxBindingSource)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
@@ -382,9 +382,9 @@
             this.dgw_minmaxtbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_minmaxtbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.típusnévDataGridViewTextBoxColumn,
-            this.maxDataGridViewTextBoxColumn,
-            this.minDataGridViewTextBoxColumn});
-            this.dgw_minmaxtbl.DataSource = this.addmaxBindingSource;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.dgw_minmaxtbl.DataSource = this.add_maxBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -418,23 +418,23 @@
             this.típusnévDataGridViewTextBoxColumn.Name = "típusnévDataGridViewTextBoxColumn";
             this.típusnévDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // maxDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.maxDataGridViewTextBoxColumn.DataPropertyName = "max";
-            this.maxDataGridViewTextBoxColumn.HeaderText = "max";
-            this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
-            this.maxDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Max";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Max";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // minDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.minDataGridViewTextBoxColumn.DataPropertyName = "min";
-            this.minDataGridViewTextBoxColumn.HeaderText = "min";
-            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            this.minDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Min";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Min";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // addmaxBindingSource
+            // add_maxBindingSource
             // 
-            this.addmaxBindingSource.DataSource = typeof(point_counter_for_uni.add_max);
+            this.add_maxBindingSource.DataSource = typeof(point_counter_for_uni.add_max);
             // 
             // tableLayoutPanel5
             // 
@@ -536,6 +536,19 @@
             this.tB_min.Size = new System.Drawing.Size(123, 20);
             this.tB_min.TabIndex = 5;
             // 
+            // but_addtype
+            // 
+            this.but_addtype.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.but_addtype.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.but_addtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but_addtype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.but_addtype.Location = new System.Drawing.Point(293, 88);
+            this.but_addtype.Name = "but_addtype";
+            this.but_addtype.Size = new System.Drawing.Size(123, 32);
+            this.but_addtype.TabIndex = 6;
+            this.but_addtype.Text = "új pont típus felvétele";
+            this.but_addtype.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 5;
@@ -580,19 +593,6 @@
             this.but_mégse.Text = "Mégse";
             this.but_mégse.UseVisualStyleBackColor = false;
             // 
-            // but_addtype
-            // 
-            this.but_addtype.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.but_addtype.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.but_addtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_addtype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.but_addtype.Location = new System.Drawing.Point(293, 88);
-            this.but_addtype.Name = "but_addtype";
-            this.but_addtype.Size = new System.Drawing.Size(123, 32);
-            this.but_addtype.TabIndex = 6;
-            this.but_addtype.Text = "új pont típus felvétele";
-            this.but_addtype.UseVisualStyleBackColor = false;
-            // 
             // Form_újtantárgy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,7 +608,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_minmaxtbl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addmaxBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_maxBindingSource)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -639,10 +639,8 @@
         private second_comboBox cB_aláírás;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private default_dataGridView dgw_minmaxtbl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn típusnévDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource addmaxBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private second_label second_label9;
         private second_label second_label10;
@@ -654,5 +652,9 @@
         private second_button but_ok;
         private second_button but_mégse;
         private second_button but_addtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn típusnévDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.BindingSource add_maxBindingSource;
     }
 }
