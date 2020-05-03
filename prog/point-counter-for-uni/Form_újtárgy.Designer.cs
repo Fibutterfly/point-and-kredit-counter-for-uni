@@ -303,7 +303,7 @@
             this.but_nope.Name = "but_nope";
             this.but_nope.Size = new System.Drawing.Size(144, 78);
             this.but_nope.TabIndex = 2;
-            this.but_nope.Text = "Megszakítás";
+            this.but_nope.Text = "Befejezve";
             this.but_nope.UseVisualStyleBackColor = false;
             // 
             // but_újlistaelem
@@ -385,7 +385,7 @@
             this.tB_year.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.tB_year.Location = new System.Drawing.Point(3, 15);
             this.tB_year.Name = "tB_year";
-            this.tB_year.Size = new System.Drawing.Size(61, 20);
+            this.tB_year.Size = new System.Drawing.Size(85, 20);
             this.tB_year.TabIndex = 2;
             // 
             // cB_félév
@@ -397,7 +397,7 @@
             this.cB_félév.FormattingEnabled = true;
             this.cB_félév.Location = new System.Drawing.Point(3, 50);
             this.cB_félév.Name = "cB_félév";
-            this.cB_félév.Size = new System.Drawing.Size(61, 21);
+            this.cB_félév.Size = new System.Drawing.Size(85, 21);
             this.cB_félév.TabIndex = 3;
             // 
             // but_felvétel

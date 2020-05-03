@@ -15,22 +15,36 @@ namespace point_counter_for_uni
         public Form1()
         {
             InitializeComponent();
-            but_BE.Click += But_BE_Click;
-            but_REG.Click += But_REG_Click;
+            tB_NEPTUN.Tag = regexer.NEPTUN;
+            tB_PASS.Tag = regexer.jelszó;
+            tB_PASS.PasswordChar = '*';
             tB_NEPTUN.Validating += regexer.regex_textBox;
             tB_PASS.Validating += regexer.regex_textBox;
+            but_BE.Click += But_BE_Click;
+            but_REG_init();
+
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            AutoValidate = AutoValidate.Disable;
+            this.CausesValidation = false;
+            base.OnFormClosing(e);
+        }
+        private void but_REG_init()
+        {
+            AutoValidate = AutoValidate.Disable;
+            but_REG.CausesValidation = true;
+            but_REG.Click += But_REG_Click;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            but_REG.CausesValidation = false;
-            tB_NEPTUN.Tag = regexer.NEPTUN;
-            tB_PASS.Tag = regexer.jelszó;
-            tB_PASS.PasswordChar = '*';
+
 #if DEBUG
-            tB_NEPTUN.Text = "HS3SS4";
-            tB_PASS.Text = "12345678";
-            login();
+            //tB_NEPTUN.Text = "HS3SS4";
+            //tB_PASS.Text = "12345678";
+            //login();
 #endif
         }
 

@@ -94,13 +94,13 @@ namespace point_counter_for_uni
             List<subject_chooser> rtn = new List<subject_chooser>();
             try
             {
-                var querry = from sub in context.Subjects
+                var querry = (from sub in context.Subjects
                              where sub.SubCode_FK.Contains(kód)
                              && sub.Subject_name.Name.Contains(név)
-                             select sub;
-                var denie = from sxs in context.StudxSubs
+                             select sub).ToList();
+                var denie = (from sxs in context.StudxSubs
                             where sxs.NEPTUN_FK == user.NEPTUN
-                            select sxs.Sub_FK;
+                            select sxs.Sub_FK).ToList();
                 foreach (var item in querry)
                 {
                     if (denie.Contains(item.Sub_SK))

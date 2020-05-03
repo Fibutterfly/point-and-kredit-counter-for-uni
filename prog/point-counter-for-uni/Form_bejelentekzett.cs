@@ -33,7 +33,8 @@ namespace point_counter_for_uni
             DialogResult dr = temp.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                MessageBox.Show("siker");
+                //MessageBox.Show("siker");
+                fillDgw();
             }
         }
 

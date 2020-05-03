@@ -61,6 +61,7 @@
             this.pontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jegyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summarizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.default_label3 = new point_counter_for_uni.default_label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -98,6 +99,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.default_label3, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -440,6 +442,19 @@
             // 
             this.summarizedBindingSource.DataSource = typeof(point_counter_for_uni.summarized);
             // 
+            // default_label3
+            // 
+            this.default_label3.AutoSize = true;
+            this.default_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.default_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.default_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.default_label3.Location = new System.Drawing.Point(531, 25);
+            this.default_label3.Name = "default_label3";
+            this.default_label3.Size = new System.Drawing.Size(260, 13);
+            this.default_label3.TabIndex = 6;
+            this.default_label3.Text = "Jegyek";
+            this.default_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // Form_bejelentekzett
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,5 +511,6 @@
         private System.Windows.Forms.BindingSource summarizedBindingSource;
         private button_default but_reset;
         private button_default but_újegyetem;
+        private default_label default_label3;
     }
 }

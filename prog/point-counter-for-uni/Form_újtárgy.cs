@@ -112,7 +112,7 @@ namespace point_counter_for_uni
 
         private void But_nope_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }
