@@ -40,11 +40,19 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgw_összesített = new point_counter_for_uni.default_dataGridView();
+            this.pontnevDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pontDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumbytypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.but_új = new point_counter_for_uni.button_default();
             this.but_mód = new point_counter_for_uni.button_default();
             this.but_del = new point_counter_for_uni.button_default();
             this.dgw_részletek = new point_counter_for_uni.default_dataGridView();
+            this.point1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pontidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pontnevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,27 +60,13 @@
             this.pontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.point1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pTFKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.sumbytypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pontidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pontnevDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pontDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointSKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.point1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studxSubFKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pTFKDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxtypepointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studxSubDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_összesített)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sumbytypesBindingSource)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_részletek)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sumbytypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,7 +115,6 @@
             this.dgw_összesített.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgw_összesített.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_összesített.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pontidDataGridViewTextBoxColumn1,
             this.pontnevDataGridViewTextBoxColumn1,
             this.maxDataGridViewTextBoxColumn1,
             this.minDataGridViewTextBoxColumn1,
@@ -152,6 +145,34 @@
             this.dgw_összesített.Size = new System.Drawing.Size(590, 187);
             this.dgw_összesített.TabIndex = 0;
             // 
+            // pontnevDataGridViewTextBoxColumn1
+            // 
+            this.pontnevDataGridViewTextBoxColumn1.DataPropertyName = "Pont_nev";
+            this.pontnevDataGridViewTextBoxColumn1.HeaderText = "Pont típus";
+            this.pontnevDataGridViewTextBoxColumn1.Name = "pontnevDataGridViewTextBoxColumn1";
+            // 
+            // maxDataGridViewTextBoxColumn1
+            // 
+            this.maxDataGridViewTextBoxColumn1.DataPropertyName = "Max";
+            this.maxDataGridViewTextBoxColumn1.HeaderText = "Max";
+            this.maxDataGridViewTextBoxColumn1.Name = "maxDataGridViewTextBoxColumn1";
+            // 
+            // minDataGridViewTextBoxColumn1
+            // 
+            this.minDataGridViewTextBoxColumn1.DataPropertyName = "Min";
+            this.minDataGridViewTextBoxColumn1.HeaderText = "Min";
+            this.minDataGridViewTextBoxColumn1.Name = "minDataGridViewTextBoxColumn1";
+            // 
+            // pontDataGridViewTextBoxColumn1
+            // 
+            this.pontDataGridViewTextBoxColumn1.DataPropertyName = "Pont";
+            this.pontDataGridViewTextBoxColumn1.HeaderText = "Pont";
+            this.pontDataGridViewTextBoxColumn1.Name = "pontDataGridViewTextBoxColumn1";
+            // 
+            // sumbytypesBindingSource
+            // 
+            this.sumbytypesBindingSource.DataSource = typeof(point_counter_for_uni.sum_by_types);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -180,7 +201,7 @@
             this.but_új.Name = "but_új";
             this.but_új.Size = new System.Drawing.Size(186, 57);
             this.but_új.TabIndex = 2;
-            this.but_új.Text = "új sor mentése";
+            this.but_új.Text = "új pont felvétele";
             this.but_új.UseVisualStyleBackColor = false;
             // 
             // but_mód
@@ -223,13 +244,8 @@
             this.dgw_részletek.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgw_részletek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_részletek.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pointSKDataGridViewTextBoxColumn,
             this.point1DataGridViewTextBoxColumn1,
-            this.studxSubFKDataGridViewTextBoxColumn,
-            this.pTFKDataGridViewTextBoxColumn1,
-            this.datumDataGridViewTextBoxColumn1,
-            this.maxtypepointsDataGridViewTextBoxColumn,
-            this.studxSubDataGridViewTextBoxColumn});
+            this.datumDataGridViewTextBoxColumn1});
             this.dgw_részletek.DataSource = this.pointBindingSource;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(18)))));
@@ -255,6 +271,22 @@
             this.dgw_részletek.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgw_részletek.Size = new System.Drawing.Size(794, 245);
             this.dgw_részletek.TabIndex = 1;
+            // 
+            // point1DataGridViewTextBoxColumn1
+            // 
+            this.point1DataGridViewTextBoxColumn1.DataPropertyName = "Point1";
+            this.point1DataGridViewTextBoxColumn1.HeaderText = "Pont";
+            this.point1DataGridViewTextBoxColumn1.Name = "point1DataGridViewTextBoxColumn1";
+            // 
+            // datumDataGridViewTextBoxColumn1
+            // 
+            this.datumDataGridViewTextBoxColumn1.DataPropertyName = "datum";
+            this.datumDataGridViewTextBoxColumn1.HeaderText = "Dátum";
+            this.datumDataGridViewTextBoxColumn1.Name = "datumDataGridViewTextBoxColumn1";
+            // 
+            // pointBindingSource
+            // 
+            this.pointBindingSource.DataSource = typeof(point_counter_for_uni.Point);
             // 
             // pontidDataGridViewTextBoxColumn
             // 
@@ -303,91 +335,11 @@
             this.pTFKDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.pTFKDataGridViewTextBoxColumn.ValueMember = "Pont_id";
             // 
-            // sumbytypesBindingSource
-            // 
-            this.sumbytypesBindingSource.DataSource = typeof(point_counter_for_uni.sum_by_types);
-            // 
             // datumDataGridViewTextBoxColumn
             // 
             this.datumDataGridViewTextBoxColumn.DataPropertyName = "datum";
             this.datumDataGridViewTextBoxColumn.HeaderText = "datum";
             this.datumDataGridViewTextBoxColumn.Name = "datumDataGridViewTextBoxColumn";
-            // 
-            // pointBindingSource
-            // 
-            this.pointBindingSource.DataSource = typeof(point_counter_for_uni.Point);
-            // 
-            // pontidDataGridViewTextBoxColumn1
-            // 
-            this.pontidDataGridViewTextBoxColumn1.DataPropertyName = "Pont_id";
-            this.pontidDataGridViewTextBoxColumn1.HeaderText = "Pont_id";
-            this.pontidDataGridViewTextBoxColumn1.Name = "pontidDataGridViewTextBoxColumn1";
-            // 
-            // pontnevDataGridViewTextBoxColumn1
-            // 
-            this.pontnevDataGridViewTextBoxColumn1.DataPropertyName = "Pont_nev";
-            this.pontnevDataGridViewTextBoxColumn1.HeaderText = "Pont_nev";
-            this.pontnevDataGridViewTextBoxColumn1.Name = "pontnevDataGridViewTextBoxColumn1";
-            // 
-            // maxDataGridViewTextBoxColumn1
-            // 
-            this.maxDataGridViewTextBoxColumn1.DataPropertyName = "Max";
-            this.maxDataGridViewTextBoxColumn1.HeaderText = "Max";
-            this.maxDataGridViewTextBoxColumn1.Name = "maxDataGridViewTextBoxColumn1";
-            // 
-            // minDataGridViewTextBoxColumn1
-            // 
-            this.minDataGridViewTextBoxColumn1.DataPropertyName = "Min";
-            this.minDataGridViewTextBoxColumn1.HeaderText = "Min";
-            this.minDataGridViewTextBoxColumn1.Name = "minDataGridViewTextBoxColumn1";
-            // 
-            // pontDataGridViewTextBoxColumn1
-            // 
-            this.pontDataGridViewTextBoxColumn1.DataPropertyName = "Pont";
-            this.pontDataGridViewTextBoxColumn1.HeaderText = "Pont";
-            this.pontDataGridViewTextBoxColumn1.Name = "pontDataGridViewTextBoxColumn1";
-            // 
-            // pointSKDataGridViewTextBoxColumn
-            // 
-            this.pointSKDataGridViewTextBoxColumn.DataPropertyName = "Point_SK";
-            this.pointSKDataGridViewTextBoxColumn.HeaderText = "Point_SK";
-            this.pointSKDataGridViewTextBoxColumn.Name = "pointSKDataGridViewTextBoxColumn";
-            // 
-            // point1DataGridViewTextBoxColumn1
-            // 
-            this.point1DataGridViewTextBoxColumn1.DataPropertyName = "Point1";
-            this.point1DataGridViewTextBoxColumn1.HeaderText = "Point1";
-            this.point1DataGridViewTextBoxColumn1.Name = "point1DataGridViewTextBoxColumn1";
-            // 
-            // studxSubFKDataGridViewTextBoxColumn
-            // 
-            this.studxSubFKDataGridViewTextBoxColumn.DataPropertyName = "StudxSub_FK";
-            this.studxSubFKDataGridViewTextBoxColumn.HeaderText = "StudxSub_FK";
-            this.studxSubFKDataGridViewTextBoxColumn.Name = "studxSubFKDataGridViewTextBoxColumn";
-            // 
-            // pTFKDataGridViewTextBoxColumn1
-            // 
-            this.pTFKDataGridViewTextBoxColumn1.DataPropertyName = "PT_FK";
-            this.pTFKDataGridViewTextBoxColumn1.HeaderText = "PT_FK";
-            this.pTFKDataGridViewTextBoxColumn1.Name = "pTFKDataGridViewTextBoxColumn1";
-            // 
-            // datumDataGridViewTextBoxColumn1
-            // 
-            this.datumDataGridViewTextBoxColumn1.DataPropertyName = "datum";
-            this.datumDataGridViewTextBoxColumn1.HeaderText = "datum";
-            this.datumDataGridViewTextBoxColumn1.Name = "datumDataGridViewTextBoxColumn1";
-            // 
-            // maxtypepointsDataGridViewTextBoxColumn
-            // 
-            this.maxtypepointsDataGridViewTextBoxColumn.DataPropertyName = "Max_type_points";
-            this.maxtypepointsDataGridViewTextBoxColumn.HeaderText = "Max_type_points";
-            this.maxtypepointsDataGridViewTextBoxColumn.Name = "maxtypepointsDataGridViewTextBoxColumn";
-            // 
-            // studxSubDataGridViewTextBoxColumn
-            // 
-            this.studxSubDataGridViewTextBoxColumn.DataPropertyName = "StudxSub";
-            this.studxSubDataGridViewTextBoxColumn.HeaderText = "StudxSub";
-            this.studxSubDataGridViewTextBoxColumn.Name = "studxSubDataGridViewTextBoxColumn";
             // 
             // Form_részletek
             // 
@@ -401,9 +353,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_összesített)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sumbytypesBindingSource)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_részletek)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sumbytypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -429,17 +381,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn point1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn pTFKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pontidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pontnevDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pontDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointSKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn point1DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studxSubFKDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pTFKDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxtypepointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studxSubDataGridViewTextBoxColumn;
     }
 }

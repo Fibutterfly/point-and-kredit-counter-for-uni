@@ -43,7 +43,7 @@ namespace point_counter_for_uni
         private void Default_dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            string def = default_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            activeID = default_dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
         }
 

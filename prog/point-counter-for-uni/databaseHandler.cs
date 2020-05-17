@@ -80,12 +80,11 @@ namespace point_counter_for_uni
             try
             {
                 rtn = (from pt in context.point_types
-                       select pt).ToList(); ;
+                       select pt).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a pont típusok lekérésében \n {ex}");
             }
             return rtn;
         }
@@ -97,13 +96,17 @@ namespace point_counter_for_uni
                 var querry = (from sub in context.Subjects
                              where sub.SubCode_FK.Contains(kód)
                              && sub.Subject_name.Name.Contains(név)
+                             //&& sub.StudxSubs.Select(x => x.NEPTUN_FK).FirstOrDefault() == user.NEPTUN
                              select sub).ToList();
                 var denie = (from sxs in context.StudxSubs
                             where sxs.NEPTUN_FK == user.NEPTUN
                             select sxs.Sub_FK).ToList();
+                var goodunis = (from sxu in context.StudentxUniversities
+                                where sxu.NEPTUN_FK == user.NEPTUN
+                                select sxu.Uni_FK).ToList();
                 foreach (var item in querry)
                 {
-                    if (denie.Contains(item.Sub_SK))
+                    if (denie.Contains(item.Sub_SK) || !goodunis.Contains(item.Subject_name.Uni_FK))
                     {
                         continue;
                     }
@@ -123,10 +126,9 @@ namespace point_counter_for_uni
                     rtn.Add(sch);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a tárgyak lekérésében \n {ex}");
             }
             return rtn;
         }
@@ -175,9 +177,9 @@ namespace point_counter_for_uni
                     //};
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba az egyetemek lekérésben \n {ex}");
             }
             return rtn;
         }
@@ -208,10 +210,9 @@ namespace point_counter_for_uni
                        
                        select p).FirstOrDefault();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a pont lekérésében \n {ex}");
             }
             return rtn;
         }
@@ -225,10 +226,9 @@ namespace point_counter_for_uni
                       && p.StudxSub.NEPTUN_FK == user.NEPTUN
                       select p).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a pontok összesítésében \n {ex}");
             }
             return rtn;
         }
@@ -255,10 +255,9 @@ namespace point_counter_for_uni
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a filterezett pontok beszerzésében \n {ex}");
             }
             return rtn;
         }
@@ -271,10 +270,9 @@ namespace point_counter_for_uni
                        where x.StudxSub.NEPTUN_FK == user.NEPTUN
                        select x.StudxSub.Subject.Year).Distinct().ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Az egyetemek  \n {ex}");
             }
             return rtn;
         }
@@ -289,10 +287,9 @@ namespace point_counter_for_uni
                        && x.Subject.Subject_name.Name == nev
                        select x.StudxSub_SK).FirstOrDefault();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a diák és az óra összekötő táblának lekérésében \n {ex}");
             }
             return rtn;
         }
@@ -301,6 +298,7 @@ namespace point_counter_for_uni
             List<summarized> rtn = new List<summarized>();
             try
             {
+                //ez már nem fért bele a videóba, de ez is macerás volt :)
                 var query = (from ss in context.StudxSubs
                              join p in context.Points on new { StudxSub_FK = ss.StudxSub_SK } equals new { StudxSub_FK = p.StudxSub_FK } into p_join
                              from p in p_join.DefaultIfEmpty()
@@ -364,10 +362,9 @@ namespace point_counter_for_uni
                 //             });
                 //System.Windows.Forms.MessageBox.Show(teszt.ToString());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba az összesített pontok lekérésben \n {ex}");
             }
             foreach (summarized item in rtn)
             {
@@ -386,15 +383,15 @@ namespace point_counter_for_uni
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba az egyetemek lekérésben \n {ex}");
             }
             return rtn;
         }
         static public List<University> getUnis()
         {
-            List<University> rtn;
+            List<University> rtn = new List<University>();
             try
             {
                 rtn = (from x in context.Universities
@@ -402,8 +399,7 @@ namespace point_counter_for_uni
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                System.Windows.Forms.MessageBox.Show($"Hiba az egyetemek lekérésben \n {ex}");
             }
             return rtn;
         }
@@ -415,8 +411,7 @@ namespace point_counter_for_uni
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                System.Windows.Forms.MessageBox.Show($"Hiba a változások mentése közben \n {ex}");
             }
         }
         static public bool login(string NEPTUN, string pass)
@@ -432,10 +427,9 @@ namespace point_counter_for_uni
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show($"Hiba a belépés közben \n {ex}");
             }
 
             return true;

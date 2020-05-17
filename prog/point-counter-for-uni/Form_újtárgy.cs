@@ -42,6 +42,10 @@ namespace point_counter_for_uni
             {
                 return;
             }
+            if (dgw_subchose.SelectedRows.Count < 1 )
+            {
+                return;
+            }
             subject_chooser sch = ((List<subject_chooser>)subjectchooserBindingSource.DataSource)[Aktívsor];
             string input_év = $"{tB_year.Text}/{cB_félév.SelectedValue}";
             //MessageBox.Show(sch.Sub_SK.ToString());

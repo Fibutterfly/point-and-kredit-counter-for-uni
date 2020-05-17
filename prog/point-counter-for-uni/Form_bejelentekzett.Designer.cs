@@ -54,6 +54,7 @@
             this.but_újtárgy = new point_counter_for_uni.button_default();
             this.cB_egyetem = new point_counter_for_uni.default_comboBox();
             this.but_újegyetem = new point_counter_for_uni.button_default();
+            this.default_label3 = new point_counter_for_uni.default_label();
             this.dgw_point = new point_counter_for_uni.default_dataGridView();
             this.tárgynévDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.évDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +62,6 @@
             this.pontDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jegyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summarizedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.default_label3 = new point_counter_for_uni.default_label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -363,6 +363,19 @@
             this.but_újegyetem.Text = "új egyetem";
             this.but_újegyetem.UseVisualStyleBackColor = false;
             // 
+            // default_label3
+            // 
+            this.default_label3.AutoSize = true;
+            this.default_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.default_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.default_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.default_label3.Location = new System.Drawing.Point(531, 25);
+            this.default_label3.Name = "default_label3";
+            this.default_label3.Size = new System.Drawing.Size(260, 13);
+            this.default_label3.TabIndex = 6;
+            this.default_label3.Text = "Jegyek";
+            this.default_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // dgw_point
             // 
             this.dgw_point.AutoGenerateColumns = false;
@@ -441,19 +454,6 @@
             // summarizedBindingSource
             // 
             this.summarizedBindingSource.DataSource = typeof(point_counter_for_uni.summarized);
-            // 
-            // default_label3
-            // 
-            this.default_label3.AutoSize = true;
-            this.default_label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.default_label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.default_label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.default_label3.Location = new System.Drawing.Point(531, 25);
-            this.default_label3.Name = "default_label3";
-            this.default_label3.Size = new System.Drawing.Size(260, 13);
-            this.default_label3.TabIndex = 6;
-            this.default_label3.Text = "Jegyek";
-            this.default_label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // Form_bejelentekzett
             // 
